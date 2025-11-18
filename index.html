@@ -1,0 +1,702 @@
+git add README.md<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kampung Budaya Gedongan</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;600&display=swap"
+    rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-gray-50">
+  <!-- Navigation -->
+  <nav class="fixed w-full bg-white z-50 shadow">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex justify-between">
+        <!-- Logo -->
+        <div class="flex space-x-4">
+          <a href="index.html" class="flex items-center py-5 px-2">
+            <img src="assets/logo.png" alt="Logo" class="h-8 mr-2">
+            <span class="font-bold text-green-800">KAMPUNG <span class="text-green-600">GEDONGAN</span></span>
+          </a>
+        </div>
+
+        <!-- Primary Nav (desktop) -->
+        <div class="hidden md:flex items-center space-x-4">
+          <a href="#home" class="block py-2 text-gray-700 hover:text-green-600">Beranda</a>
+          <a href="#sejarah" class="block py-2 text-gray-700 hover:text-green-600">Sejarah</a>
+          <a href="#peta" class="block py-2 text-gray-700 hover:text-green-600">Batas Wilayah</a>
+          <a href="#video" class="block py-2 text-gray-700 hover:text-green-600">Video Profile</a>
+          <a href="#potensi" class="block py-2 text-gray-700 hover:text-green-600">Potensi</a>
+          <a href="#galeri" class="block py-2 text-gray-700 hover:text-green-600">Galeri</a>
+          <a href="#pemerintahan" class="block py-2 text-gray-700 hover:text-green-600">Administratif</a>
+        </div>
+
+        <!-- Mobile Button -->
+        <div class="md:hidden flex items-center">
+          <button id="mobile-menu-button">
+            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow px-4 pb-4">
+      <a href="#home" class="block py-2 text-gray-700 hover:text-green-600">Beranda</a>
+      <a href="#sejarah" class="block py-2 text-gray-700 hover:text-green-600">Sejarah</a>
+      <a href="#peta" class="block py-2 text-gray-700 hover:text-green-600">Batas Wilayah</a>
+      <a href="#video" class="block py-2 text-gray-700 hover:text-green-600">Video Profile</a>
+      <a href="#potensi" class="block py-2 text-gray-700 hover:text-green-600">Potensi</a>
+      <a href="#galeri" class="block py-2 text-gray-700 hover:text-green-600">Galeri</a>
+      <a href="#pemerintahan" class="block py-2 text-gray-700 hover:text-green-600">Administratif</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero-section relative h-screen overflow-hidden">
+    <!-- Slideshow Container -->
+    <div id="hero-slides" class="absolute inset-0">
+      <div class="slide bg-cover bg-center absolute inset-0 opacity-100 transition-opacity duration-1000"
+        style="background-image: url('assets/bregodo1.jpg');"></div>
+      <div class="slide bg-cover bg-center absolute inset-0 opacity-0 transition-opacity duration-1000"
+        style="background-image: url('assets/background2.jpg');"></div>
+      <div class="slide bg-cover bg-center absolute inset-0 opacity-0 transition-opacity duration-1000"
+        style="background-image: url('assets/bregodo2.jpg');"></div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+
+    <!-- Content -->
+    <div class="absolute inset-0 flex items-center justify-center z-10">
+      <div class="container mx-auto px-6 text-center text-white">
+        <h1 class="text-4xl md:text-6xl font-bold mb-6">
+          Selamat Datang di <br><span class="text-green-600">Kampung Gedongan</span>
+        </h1>
+      </div>
+    </div>
+
+    <!-- Tombol Navigasi -->
+    <button id="prevBtn"
+      class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-3xl z-20 bg-black bg-opacity-40 hover:bg-opacity-70 px-3 py-2 rounded-full">
+      &#10094;
+    </button>
+    <button id="nextBtn"
+      class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-3xl z-20 bg-black bg-opacity-40 hover:bg-opacity-70 px-3 py-2 rounded-full">
+      &#10095;
+    </button>
+  </section>
+
+  <!-- Script Slider -->
+  <script>
+    const slides = document.querySelectorAll('#hero-slides .slide');
+    let currentSlide = 0;
+    let slideInterval;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('opacity-100');
+        slide.classList.add('opacity-0');
+        if (i === index) {
+          slide.classList.add('opacity-100');
+          slide.classList.remove('opacity-0');
+        }
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    document.getElementById('nextBtn').addEventListener('click', () => {
+      nextSlide();
+      restartAutoSlide();
+    });
+
+    document.getElementById('prevBtn').addEventListener('click', () => {
+      prevSlide();
+      restartAutoSlide();
+    });
+
+    function startAutoSlide() {
+      slideInterval = setInterval(nextSlide, 4000);
+    }
+
+    function restartAutoSlide() {
+      clearInterval(slideInterval);
+      startAutoSlide();
+    }
+
+    // Jalankan otomatis saat halaman dimuat
+    startAutoSlide();
+  </script>
+
+  <!-- sejarah -->
+  <section id="sejarah" class="py-20 bg-white">
+    <div class="container mx-auto px-6 text-center">
+      <span class="text-sm uppercase tracking-wider text-green-600">Kampung Gedongan</span>
+      <h2 class="text-3xl md:text-4xl font-bold text-green-800 mt-2 mb-10">Sejarah <span class="text-green-600">Kampung
+          Gedongan</span></h2>
+      <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-lg transition">
+        <div class="relative w-full overflow-hidden mb-8">
+          <div class="flex transition-transform duration-700 ease-in-out">
+            <p class="text-base md:text-lg leading-relaxed text-gray-700 text-justify">Kampung Gedongan berasal dari
+              nama seorang tokoh bernama Kyai Gedhong. Dahulu, beliau
+              tinggal dan mengabdi di wilayah yang kini dikenal sebagai Kampung Gedongan. Kyai Gedhong merupakan seorang
+              abdi dalem Kerajaan Pajang yang kemudian mengalihkan dukungannya kepada Panembahan Senopati, pendiri
+              Kerajaan Mataram Islam, pada masa perseteruan antara Pajang dan Mataram.
+
+              Dalam perjuangannya, Kyai Gedhong yang merupakan warga asli Pajang menyelundupkan senjata untuk membantu
+              pasukan Mataram. Atas tindakannya tersebut, beliau dihormati sebagai pahlawan oleh rakyat Mataram, namun
+              dianggap sebagai pengkhianat oleh rakyat Pajang. Akhirnya, Kyai Gedhong tertangkap oleh pihak Pajang dan
+              dijatuhi hukuman mati. Jenazah beliau kemudian
+              dimakamkan di wilayah Kotagede, yang kini dikenal dengan nama Kampung Gedongan.
+
+              Nama “Kyai Gedhong” sendiri merupakan gelar kehormatan, bukan nama asli beliau. Gelar ini diberikan karena
+              tugas beliau sebagai penjaga gedhong pusaka, yaitu tempat penyimpanan benda-benda berharga milik Kerajaan
+              Pajang.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Batas Wilayah -->
+  <section id="peta" class="py-20 bg-gray-100 texture-overlay">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-green-800 mb-6">Batas <span class="text-green-600">Wilayah </span>
+      </h2>
+
+      <div class="mb-10 mt-8"> <img src="assets/peta.jpg" alt="Peta Batas Wilayah Kampung Gedongan"
+          class="max-w-full h-auto mx-auto rounded-lg shadow-lg" style="max-height: 400px; object-fit: contain;">
+        <p class="text-gray-700 max-w-3xl mx-auto text-base md:text-lg leading-relaxed px-4 text-justify">
+          <br>
+          Kampung Gedongan berada di lokasi yang strategis. Secara administratif, Kampung Gedongan berbatasan langsung
+          dengan
+          Kalurahan Banguntapan di sisi utara, timur, dan selatan, serta Kelurahan Prenggan di sisi
+          barat. Posisi ini menjadikan Kampung Gedongan sebagai kawasan yang dinamis, berada di antara wilayah Kabupaten
+          Bantul dan Kota Yogyakarta.
+        </p>
+      </div>
+  </section>
+
+  <!-- Video Profile -->
+  <section id="video" class="py-20 bg-white">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-green-800 mb-6">Video Profile <span class="text-green-600">Kampung
+          Gedongan</span></h2>
+      <!-- Embed Video YouTube -->
+      <div class="mb-8 max-w-4xl mx-auto">
+        <div class="aspect-video w-full">
+          <iframe src="https://www.youtube.com/embed/jT5tQkd_mGo" title="Video Profile Kampung Gedongan" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen class="w-full h-full rounded-lg shadow-lg">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Budaya Kampung -->
+  <section id="potensi" class="py-20 bg-gray-100 relative texture-overlay">
+    <div class="container mx-auto px-4 md:px-6 text-center">
+      <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-green-800 mb-4 md:mb-6">Potensi Budaya <span
+          class="text-green-600">Kampung Gedongan</span></h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 md:gap-8 text-left">
+        <div class="bg-gray-50 p-4 md:p-6 rounded-lg shadow-md flex flex-col md:flex-row items-center">
+          <img src="assets/bregodo2.jpg" alt="Bregodo Kyai Gedong"
+            class="w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 mr-0 md:mr-4 mb-4 md:mb-0 rounded-lg object-cover">
+          <div>
+            <h3 class="text-lg md:text-xl font-semibold text-green-600 mb-2">Bregodo Kyai Gedong</h3>
+            <p class="text-sm md:text-base text-gray-600">Bregodo Kyai Gedong merupakan pasukan pengiring tradisional
+              yang menjadi simbol semangat perjuangan dan warisan sejarah leluhur Kampung Gedongan.</p>
+          </div>
+        </div>
+        <div class="bg-gray-50 p-4 md:p-6 rounded-lg shadow-md flex flex-col md:flex-row items-center">
+          <img src="assets/nyadran.jpeg" alt="tradisi Nyadran di Kampung Gedongan"
+            class="w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 mr-0 md:mr-4 mb-4 md:mb-0 rounded-lg object-cover">
+          <div>
+            <h3 class="text-lg md:text-xl font-semibold text-green-600 mb-2">Tradisi Nyadran</h3>
+            <p class="text-sm md:text-base text-gray-600">Sebuah tradisi di bulan Ruwah sebagai wujud syukur dan
+              penghormatan kepada leluhur melalui prosesi bersih makam, doa, dan makan bersama.</p>
+          </div>
+        </div>
+        <div class="bg-gray-50 p-4 md:p-6 rounded-lg shadow-md flex flex-col md:flex-row items-center">
+          <img src="assets/tanduk.png" alt="kerajinan tanduk kerbau"
+            class="w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 mr-0 md:mr-4 mb-4 md:mb-0 rounded-lg object-cover">
+          <div>
+            <h3 class="text-lg md:text-xl font-semibold text-green-600 mb-2">Kerajinan Tanduk Kerbau</h3>
+            <p class="text-sm md:text-base text-gray-600">Kerajinan tanduk kerbau menjadi kebanggaan warga Gedongan,
+              menghasilkan aneka bentuk kerjajinan dengan nilai seni tinggi.</p>
+          </div>
+        </div>
+        <div class="bg-gray-50 p-4 md:p-6 rounded-lg shadow-md flex flex-col md:flex-row items-center">
+          <img src="assets/perak.jpg" alt="kerajinan perak"
+            class="w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 mr-0 md:mr-4 mb-4 md:mb-0 rounded-lg object-cover">
+          <div>
+            <h3 class="text-lg md:text-xl font-semibold text-green-600 mb-2">Kerajinan Perak</h3>
+            <p class="text-sm md:text-base text-gray-600">Produk kerajinan perak khas Kampung Gedongan dikenal dengan
+              keindahan dan detail ukirannya, menjadi daya tarik seni dan ekonomi bagi masyarakat.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Galeri Kegiatan -->
+  <section id="galeri" class="py-20 bg-white">
+    <div class="container mx-auto px-6 text-center">
+      <span class="text-sm uppercase tracking-wider text-green-600">Kumpulan Foto</span>
+      <h2 class="text-3xl md:text-4xl font-bold mt-2 text-green-800">
+        Galeri <span class="text-green-600">Kegiatan</span>
+      </h2>
+
+      <!-- Grid Galeri -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-10" id="gallery-grid">
+
+        <!-- Foto 1 -->
+        <div class="overflow-hidden rounded-xl shadow-lg hover:scale-105 transform transition duration-300 bg-green-50">
+          <img src="assets/kwt.jpg" alt="kwt" class="w-full h-64 object-cover">
+          <div class="p-4 bg-green-50">
+            <h3 class="font-semibold text-green-800">Pertemuan KWT</h3>
+            <p class="text-gray-600 text-sm">Pertemuan rutin Kelompok Wanita Tani, kelompok Mina Ikan, dan Bank Sampah
+              RW 03 yang membahas tentang lingkungan</p>
+          </div>
+        </div>
+
+        <!-- Foto 2 -->
+        <div class="overflow-hidden rounded-xl shadow-lg hover:scale-105 transform transition duration-300 bg-green-50">
+          <img src="assets/senam1.jpg" alt="senam" class="w-full h-64 object-cover">
+          <div class="p-4 bg-green-50">
+            <h3 class="font-semibold text-green-800">Senam Minggu Pagi</h3>
+            <p class="text-gray-600 text-sm">Kegiatan senam bersama ibu-ibu setiap Minggu pagi di Balai Kelurahan
+              Purbayan untuk menjaga kebugaran dan kebersamaan warga</p>
+          </div>
+        </div>
+
+        <!-- Foto 3 -->
+        <div class="overflow-hidden rounded-xl shadow-lg hover:scale-105 transform transition duration-300 bg-green-50">
+          <img src="assets/kajian.jpg" alt="kajian" class="w-full h-64 object-cover">
+          <div class="p-4 bg-green-50">
+            <h3 class="font-semibold text-green-800">Kajian Jumat Malam</h3>
+            <p class="text-gray-600 text-sm">Kajian rutin selepas Maghrib hingga Isya setiap Jumat malam di Masjid Nurul
+              Iman</p>
+          </div>
+        </div>
+
+        <!-- Foto 4 -->
+        <div class="overflow-hidden rounded-xl shadow-lg hover:scale-105 transform transition duration-300 bg-green-50">
+          <img src="assets/yasinan.jpg" alt="yasinan" class="w-full h-64 object-cover">
+          <div class="p-4 bg-green-50">
+            <h3 class="font-semibold text-green-800">Yasinan</h3>
+            <p class="text-gray-600 text-sm">Yasinan rutin bapak-bapak tiap malam Jumat</p>
+          </div>
+        </div>
+
+        <!-- Foto 5 -->
+        <div class="overflow-hidden rounded-xl shadow-lg hover:scale-105 transform transition duration-300 bg-green-50">
+          <img src="assets/pengajian.jpg" alt="pengajian" class="w-full h-64 object-cover">
+          <div class="p-4 bg-green-50">
+            <h3 class="font-semibold text-green-800">Pengajian</h3>
+            <p class="text-gray-600 text-sm">Pengajian ibu-ibu yang dilaksanakan setiap Senin Wage dan Jumat Pahing
+              sebagai wadah memperdalam pengetahuan agama dan silaturahmi</p>
+          </div>
+        </div>
+
+        <!-- Foto 6 -->
+        <div class="overflow-hidden rounded-xl shadow-lg hover:scale-105 transform transition duration-300 bg-green-50">
+          <img src="assets/tpa.jpg" alt="tpa" class="w-full h-64 object-cover">
+          <div class="p-4 bg-green-50">
+            <h3 class="font-semibold text-green-800">TPA</h3>
+            <p class="text-gray-600 text-sm">Belajar mengaji Iqro dan Qur'an di TPQ Gedongan</p>
+          </div>
+        </div>
+
+        <!-- Foto 7 -->
+        <div class="overflow-hidden rounded-xl shadow-lg hover:scale-105 transform transition duration-300 bg-green-50">
+          <img src="assets/badminton.jpg" alt="badminton" class="w-full h-64 object-cover">
+          <div class="p-4 bg-green-50">
+            <h3 class="font-semibold text-green-800">Badminton</h3>
+            <p class="text-gray-600 text-sm">Olahraga badminton bersama pemuda Kampung Gedongan setiap malam Senin untuk
+              menjaga kesehatan dan mempererat persaudaraan</p>
+          </div>
+        </div>
+
+        <!-- Foto 8 -->
+        <div class="overflow-hidden rounded-xl shadow-lg hover:scale-105 transform transition duration-300 bg-green-50">
+          <img src="assets/rt.jpg" alt="rt" class="w-full h-64 object-cover">
+          <div class="p-4 bg-green-50">
+            <h3 class="font-semibold text-green-800">Pertemuan RT</h3>
+            <p class="text-gray-600 text-sm">Pertemuan rutin bulanan setiap RT di Kampung Gedongan sebagai wadah
+              koordinasi dan musyawarah warga</p>
+          </div>
+        </div>
+
+        <!-- Foto 9 (Hidden by default) -->
+        <div
+          class="overflow-hidden rounded-xl shadow-lg hover:scale-105 transform transition duration-300 bg-green-50 hidden"
+          id="foto-9">
+          <img src="assets/ronda.jpeg" alt="ronda" class="w-full h-64 object-cover">
+          <div class="p-4 bg-green-50">
+            <h3 class="font-semibold text-green-800">Ronda</h3>
+            <p class="text-gray-600 text-sm">Kegiatan ronda malam yang dilakukan secara bergiliran untuk menjaga
+              keamanan dan ketertiban lingkungan kampung</p>
+          </div>
+        </div>
+
+        <!-- Foto 10 (Hidden by default) -->
+        <div
+          class="overflow-hidden rounded-xl shadow-lg hover:scale-105 transform transition duration-300 bg-green-50 hidden"
+          id="foto-10">
+          <img src="assets/yandu-balita.jpg" alt="yandu balita" class="w-full h-64 object-cover">
+          <div class="p-4 bg-green-50">
+            <h3 class="font-semibold text-green-800">Posyandu Balita</h3>
+            <p class="text-gray-600 text-sm">Kegiatan pemeriksaan tumbuh kembang balita yang dilakukan rutin setiap
+              bulan oleh masing-masing RW</p>
+          </div>
+        </div>
+
+        <!-- Foto 11 (Hidden by default) -->
+        <div
+          class="overflow-hidden rounded-xl shadow-lg hover:scale-105 transform transition duration-300 bg-green-50 hidden"
+          id="foto-11">
+          <img src="assets/posyandu-lansia.jpg" alt="yandu-lansia" class="w-full h-64 object-cover">
+          <div class="p-4 bg-green-50">
+            <h3 class="font-semibold text-green-800">Posyandu Lansia</h3>
+            <p class="text-gray-600 text-sm">Pemeriksaan kesehatan lansia dan pra-lansia yang dilaksanakan bersama
+              seluruh warga Kampung Gedongan setiap bulan sekali</p>
+          </div>
+        </div>
+
+        <!-- Foto 12 (Hidden by default) -->
+        <div
+          class="overflow-hidden rounded-xl shadow-lg hover:scale-105 transform transition duration-300 bg-green-50 hidden"
+          id="foto-12">
+          <img src="assets/bank-sampah.jpg" alt="bank sampah" class="w-full h-64 object-cover">
+          <div class="p-4 bg-green-50">
+            <h3 class="font-semibold text-green-800">Bank Sampah</h3>
+            <p class="text-gray-600 text-sm">Kegiatan pemilahan, penimbangan, dan penjualan sampah anorganik untuk
+              mendukung program kebersihan dan ekonomi warga</p>
+          </div>
+        </div>
+
+        <!-- Foto 13 (Hidden by default) -->
+        <div
+          class="overflow-hidden rounded-xl shadow-lg hover:scale-105 transform transition duration-300 bg-green-50 hidden"
+          id="foto-13">
+          <img src="assets/voli.jpg" alt="voli" class="w-full h-64 object-cover">
+          <div class="p-4 bg-green-50">
+            <h3 class="font-semibold text-green-800">Voli</h3>
+            <p class="text-gray-600 text-sm">Olahraga sore di lapangan voli Kampung Gedongan</p>
+          </div>
+        </div>
+
+        <!-- Foto 14 (Hidden by default) -->
+        <div
+          class="overflow-hidden rounded-xl shadow-lg hover:scale-105 transform transition duration-300 bg-green-50 hidden"
+          id="foto-14">
+          <img src="assets/sodakoh.jpg" alt="bank sampah" class="w-full h-64 object-cover">
+          <div class="p-4 bg-green-50">
+            <h3 class="font-semibold text-green-800">Sodakoh Sampah</h3>
+            <p class="text-gray-600 text-sm">Melakukan pemilahan sampah, penimbangan, dan penjualan samah anorganik yang
+              dilakukan di RW 01 dan RW 02</p>
+          </div>
+        </div>
+
+        <!-- Foto 15 (Hidden by default) -->
+        <div
+          class="overflow-hidden rounded-xl shadow-lg hover:scale-105 transform transition duration-300 bg-green-50 hidden"
+          id="foto-14">
+          <img src="assets/selapanan.jpg" alt="selapanan" class="w-full h-64 object-cover">
+          <div class="p-4 bg-green-50">
+            <h3 class="font-semibold text-green-800">Pengajian Selapanan</h3>
+            <p class="text-gray-600 text-sm">Pengajian rutin yang dilakukan setiap 35 hari sekali (selapanan) di
+              lingkungan RW 01 Gedongan</p>
+          </div>
+        </div>
+
+        <!-- Foto 16 (Hidden by default) -->
+        <div
+          class="overflow-hidden rounded-xl shadow-lg hover:scale-105 transform transition duration-300 bg-green-50 hidden"
+          id="foto-14">
+          <img src="assets/karawitan.jpg" alt="karawitan" class="w-full h-64 object-cover">
+          <div class="p-4 bg-green-50">
+            <h3 class="font-semibold text-green-800">Karawitan</h3>
+            <p class="text-gray-600 text-sm">Kegiatan karawitan yang dilakukan pemuda untuk melestarikan budaya jawa</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Tombol Show More / Show Less -->
+      <div class="mt-10">
+        <button id="toggle-btn"
+          class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition duration-300">
+          Tampilkan Lebih Banyak
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.getElementById('toggle-btn').addEventListener('click', function () {
+      const hiddenPhotos = document.querySelectorAll('#foto-9, #foto-10, #foto-11, #foto-12, #foto-13, #foto-14');
+      const btn = document.getElementById('toggle-btn');
+
+      if (btn.textContent === 'Tampilkan Lebih Banyak') {
+        hiddenPhotos.forEach(photo => photo.classList.remove('hidden'));
+        btn.textContent = 'Tampilkan Lebih Sedikit';
+      } else {
+        hiddenPhotos.forEach(photo => photo.classList.add('hidden'));
+        btn.textContent = 'Tampilkan Lebih Banyak';
+      }
+    });
+  </script>
+
+  <!-- Administratif -->
+  <section id="pemerintahan" class="py-20 bg-gray-100 relative texture-overlay"
+    alt="Background abstrak tekstur kayu alami dengan pencahayaan hangat">
+    <div class="container mx-auto px-6 relative">
+      <div class="text-center mb-16">
+        <span class="text-sm uppercase tracking-wider text-green-600">Struktur dan Kepemimpinan</span>
+        <h2 class="text-3xl md:text-4xl font-bold mt-2 text-green-800">
+          Pemerintahan <span class="text-green-600">Kampung Gedongan</span>
+        </h2>
+      </div>
+
+      <!-- Bagan Administratif -->
+      <div class="flex flex-col items-center space-y-8">
+        <!-- RK -->
+        <div
+          class="bg-green-600 text-white px-6 py-4 rounded-lg shadow-lg text-center text-lg w-full max-w-xs md:max-w-sm">
+          <strong>Rukun Kampung</strong><br>
+          <span class="text-sm">Sugeng Prijayatun</span>
+        </div>
+
+        <!-- Garis vertikal dari RK ke RW -->
+        <div class="w-1 bg-green-600 h-8"></div>
+
+        <!-- RW (3 RW) - Responsif: stack di mobile, baris di desktop -->
+        <div class="flex flex-col md:flex-row md:space-x-8 space-y-8 md:space-y-0 items-center">
+          <div class="flex flex-col items-center space-y-4">
+            <div class="bg-green-500 text-white px-4 py-3 rounded-lg shadow-md text-center w-full max-w-xs md:max-w-sm">
+              <strong>RW 01</strong><br>
+              <span class="text-sm">Wahyudiyono</span>
+            </div>
+            <!-- Garis vertikal dari RW ke RT -->
+            <div class="w-0.5 bg-green-500 h-6"></div>
+            <!-- RT di bawah RW 1 (3 RT) - Flex wrap untuk fleksibilitas -->
+            <div class="flex flex-wrap justify-center gap-2">
+              <div class="bg-green-400 text-white px-3 py-2 rounded shadow text-center text-sm w-20 md:w-24">
+                <strong>RT 01</strong><br>
+                <span class="text-sm">Panji Sri Lambang</span>
+              </div>
+              <div class="bg-green-400 text-white px-3 py-2 rounded shadow text-center text-sm w-20 md:w-24">
+                <strong>RT 02</strong><br>
+                <span class="text-sm">Fatah Hidayat</span>
+              </div>
+              <div class="bg-green-400 text-white px-3 py-2 rounded shadow text-center text-sm w-20 md:w-24">
+                <strong>RT 03</strong><br>
+                <span class="text-sm">Sadari</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col items-center space-y-4">
+            <div class="bg-green-500 text-white px-4 py-3 rounded-lg shadow-md text-center w-full max-w-xs md:max-w-sm">
+              <strong>RW 02</strong><br>
+              <span class="text-sm">Sudaryanto</span>
+            </div>
+            <!-- Garis vertikal dari RW ke RT -->
+            <div class="w-0.5 bg-green-500 h-6"></div>
+            <!-- RT di bawah RW 2 (3 RT) -->
+            <div class="flex flex-wrap justify-center gap-2">
+              <div class="bg-green-400 text-white px-3 py-2 rounded shadow text-center text-sm w-20 md:w-24">
+                <strong>RT 04</strong><br>
+                <span class="text-sm">Kawitono</span>
+              </div>
+              <div class="bg-green-400 text-white px-3 py-2 rounded shadow text-center text-sm w-20 md:w-24">
+                <strong>RT 05</strong><br>
+                <span class="text-sm">Wagiman</span>
+              </div>
+              <div class="bg-green-400 text-white px-3 py-2 rounded shadow text-center text-sm w-20 md:w-24">
+                <strong>RT 06</strong><br>
+                <span class="text-sm">Triyatno</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col items-center space-y-4">
+            <div class="bg-green-500 text-white px-4 py-3 rounded-lg shadow-md text-center w-full max-w-xs md:max-w-sm">
+              <strong>RW 03</strong><br>
+              <span class="text-sm">Sutopan Basuki</span>
+            </div>
+            <!-- Garis vertikal dari RW ke RT -->
+            <div class="w-0.5 bg-green-500 h-6"></div>
+            <!-- RT di bawah RW 3 (3 RT) -->
+            <div class="flex flex-wrap justify-center gap-2">
+              <div class="bg-green-400 text-white px-3 py-2 rounded shadow text-center text-sm w-20 md:w-24">
+                <strong>RT 07</strong><br>
+                <span class="text-sm">Rudi Nugroho</span>
+              </div>
+              <div class="bg-green-400 text-white px-3 py-2 rounded shadow text-center text-sm w-20 md:w-24">
+                <strong>RT 08</strong><br>
+                <span class="text-sm">Yulianto</span>
+              </div>
+              <div class="bg-green-400 text-white px-3 py-2 rounded shadow text-center text-sm w-20 md:w-24">
+                <strong>RT 09</strong><br>
+                <span class="text-sm">Budi Hartono</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-gradient-to-r from-green-600 to-green-800 text-white">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">Mari Kenali dan Lestarikan Kampung Budaya Gedongan</h2>
+      <p class="text-xl mb-8 max-w-2xl mx-auto">
+        Bersama kita jaga warisan budaya, tingkatkan kebersamaan warga, dan wujudkan lingkungan yang harmonis dan
+        berdaya.
+      </p>
+      <a href="#potensi"
+        class="inline-block bg-white text-green-700 font-semibold px-6 py-3 rounded-full shadow hover:bg-gray-100 transition">
+        Lihat Potensi
+      </a>
+    </div>
+  </section>
+
+  <footer class="bg-gray-900 text-gray-400 pt-16 pb-8">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+        <!-- Info  -->
+        <div>
+          <h3 class="text-white text-xl font-bold mb-4">Kampung Gedongan</h3>
+          <p class="mb-4">Kampung budaya Kotagede</p>
+          <div class="flex space-x-4">
+            <!-- social icons... -->
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-white text-lg font-semibold mb-4">Tautan Cepat</h4>
+          <ul class="space-y-2">
+            <li><a href="#home" class="hover:text-green-400 transition">Beranda</a></li>
+            <li><a href="#sejarah" class="hover:text-green-400 transition">Sejarah</a></li>
+            <li><a href="#peta" class="hover:text-green-400 transition">Batas Wilayah</a></li>
+            <li><a href="#video" class="hover:text-green-400 transition">Video Profile</a></li>
+            <li><a href="#potensi" class="hover:text-green-400 transition">Potensi</a></li>
+            <li><a href="#galeri" class="hover:text-green-400 transition">Galeri</a></li>
+            <li><a href="#pemerintahan" class="hover:text-green-400 transition">Administratif</a></li>
+          </ul>
+        </div>
+
+        <!-- Contacts -->
+        <div>
+          <h4 class="text-white text-lg font-semibold mb-4">Contacts</h4>
+          <ul class="space-y-2">
+            <li>
+              <a href="https://www.instagram.com/kampung.gedongan?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                class="flex items-center gap-2 hover:text-green-400 transition">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  class="text-green-400">
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                    fill="currentColor" />
+                </svg>
+                <span>@kampung.gedongan</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+       <!-- Maps Embed -->
+<div>
+  <h4 class="text-white text-lg font-semibold mb-4">Lokasi Kami</h4>
+  <div class="w-full rounded-md overflow-hidden shadow-md responsive-iframe">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d430.2948682380046!2d110.40202987021135!3d-7.82197433211561!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a5726753802e5%3A0x1fec01e77fc63c7d!2sRTHP%20Fasum%20Purbayan!5e1!3m2!1sid!2sid!4v1761800636647!5m2!1sid!2sid"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</div>
+      </div>
+      <div class="border-t border-gray-800 mt-12 pt-8 flex justify-center items-center text-center">
+        <p class="text-sm">© KKN AB.83.338 UPNVYK 2025</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Sticky navigation
+    window.addEventListener('scroll', function () {
+      const nav = document.querySelector('nav');
+      if (window.scrollY > 50) {
+        nav.classList.add('shadow-md');
+        nav.classList.add('bg-white');
+        nav.classList.remove('bg-opacity-90');
+      } else {
+        nav.classList.remove('shadow-md');
+        nav.classList.add('bg-opacity-90');
+      }
+    });
+
+    const productCards = document.querySelectorAll('.product-card');
+    productCards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        const img = card.querySelector('img');
+        img.style.transform = 'scale(1.1)';
+      });
+
+      card.addEventListener('mouseleave', () => {
+        const img = card.querySelector('img');
+        img.style.transform = 'scale(1)';
+      });
+    });
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const btn = document.getElementById("mobile-menu-button");
+      const menu = document.getElementById("mobile-menu");
+
+      btn.addEventListener("click", function () {
+        menu.classList.toggle("hidden");
+      });
+    });
+  </script>
+
+</body>
+
+</html>
