@@ -83,3 +83,362 @@ h3 {
 .animation-delay-500 {
   animation-delay: 0.5s;
 }
+
+/* =============================================================================
+   Peta Interaktif UMKM — Leaflet Map Components
+   Sesuai konvensi: style.css hanya untuk komponen custom (bukan utility Tailwind)
+   ============================================================================= */
+
+/* --- Preview Map (di landing page) --- */
+.map-preview-wrapper {
+  border-radius: 0.75rem;   /* rounded-xl */
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+#map-preview {
+  height: 420px;
+  width: 100%;
+  /* z-index eksplisit agar tile layer tidak tertimpa elemen lain */
+  z-index: 1;
+}
+
+/* Mobile: kurangi tinggi agar tidak memakan terlalu banyak layar */
+@media (max-width: 640px) {
+  #map-preview {
+    height: 280px;
+  }
+}
+
+/* --- Fullscreen Map Overlay ------------------------------------------------ */
+.map-fullscreen-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #fff;
+  display: none;
+  flex-direction: column;
+  height: 100vh;
+  height: 100dvh;    /* dynamic viewport height — menghindari masalah toolbar browser mobile */
+  width: 100vw;
+  /* JS mengontrol display via overlay.style.display secara langsung.
+     Kelas .is-open tidak digunakan — dihapus saat Day 7 cleanup. */
+}
+
+/* Header bar di atas peta fullscreen */
+.map-fullscreen-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  /* Safe-area inset kiri/kanan untuk layar dengan notch/punch-hole */
+  padding-left: max(20px, env(safe-area-inset-left));
+  padding-right: max(20px, env(safe-area-inset-right));
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1000;          /* Di atas Leaflet pane (z-index: 400) */
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+  gap: 8px;
+}
+
+/* Mobile: persempit padding header agar tidak terpotong */
+@media (max-width: 480px) {
+  .map-fullscreen-header {
+    padding: 8px 12px;
+  }
+
+  /* Sembunyikan teks judul "Kampung Gedongan" di layar sangat kecil,
+     sisakan hanya "Peta UMKM" agar tombol Tutup tidak terdesak */
+  .map-fullscreen-header h2 span {
+    display: none;
+  }
+}
+
+/* Tombol tutup di dalam header */
+.map-fullscreen-close-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f3f4f6;   /* gray-100 */
+  color: #374151;        /* gray-700 */
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;  /* Jangan mengecil saat ruang sempit */
+  /* Touch target minimal 44×44px (Apple HIG) */
+  min-height: 44px;
+  min-width: 44px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+@media (max-width: 480px) {
+  /* Di mobile: persempit padding tombol tutup agar tidak terlalu besar */
+  .map-fullscreen-close-btn {
+    padding: 10px 12px;
+  }
+}
+
+.map-fullscreen-close-btn:hover {
+  background: #fee2e2;  /* red-100 */
+  color: #dc2626;       /* red-600 */
+}
+
+/* Peta fullscreen mengisi semua ruang tersisa di bawah header + filter bar */
+#map-fullscreen {
+  flex: 1;
+  width: 100%;
+  min-height: 0;  /* Wajib pada flex children agar tidak overflow */
+}
+
+/* Sub-header bar untuk filter di peta fullscreen */
+.map-fullscreen-filter-bar {
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 8px 16px;
+  flex-shrink: 0;
+  /* Scroll horizontal jika filter terlalu banyak untuk satu baris */
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;  /* Inertia scroll di iOS */
+  /* Sembunyikan scrollbar visual tapi tetap bisa di-scroll */
+  scrollbar-width: none;
+}
+.map-fullscreen-filter-bar::-webkit-scrollbar {
+  display: none;
+}
+/* Biarkan konten filter mengambil lebar minimum (tidak wrap di mobile) */
+.map-fullscreen-filter-bar > div {
+  min-width: max-content;
+}
+
+/* --- Filter bar di landing page: scroll horizontal di mobile --- */
+#map-filter-bar {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  /* Override Tailwind flex-wrap agar tidak turun baris di mobile */
+  flex-wrap: nowrap !important;
+  justify-content: flex-start !important;
+  padding-bottom: 4px; /* Ruang untuk scrollbar tipis di beberapa browser */
+}
+#map-filter-bar::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  /* Di tablet ke atas: kembalikan ke center + wrap normal */
+  #map-filter-bar {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    overflow-x: visible;
+  }
+}
+
+/* --- Category Filter & Legend Pill --- */
+.map-filter-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  color: #4b5563;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  cursor: pointer;
+  white-space: nowrap;     /* Jangan pecah teks filter di dalam pill */
+  flex-shrink: 0;          /* Jangan mengecil saat parent scroll */
+  /* Touch target minimal 44px tinggi */
+  min-height: 44px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.map-filter-pill:hover {
+  background: #f9fafb;
+  border-color: #d1d5db;
+  transform: translateY(-1px);
+}
+
+/* Nonaktifkan efek hover pada touch device (tidak ada hover state fisik) */
+@media (hover: none) {
+  .map-filter-pill:hover {
+    background: #fff;
+    border-color: #e5e7eb;
+    transform: none;
+  }
+}
+
+.map-filter-pill.active {
+  background: #f0fdf4;
+  border-color: #16a34a;
+  color: #166534;
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.15);
+}
+
+.map-filter-pill.active span {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}
+
+/* --- Tombol Fullscreen (disabled state) --- */
+#btn-open-fullscreen:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* =============================================================================
+   Day 3 — Custom Marker & Popup UMKM
+   ============================================================================= */
+
+/* --- Custom Marker Pin --- */
+
+/* Reset default Leaflet divIcon — marker sekarang menggunakan SVG inline */
+.umkm-marker-icon {
+  background: transparent !important;
+  border: none !important;
+  overflow: visible !important;
+}
+
+/* --- Leaflet Popup Container Override --- */
+
+/* Hapus padding default Leaflet dan beri border-radius ke wrapper */
+.umkm-popup-wrapper .leaflet-popup-content-wrapper {
+  padding: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  border: none;
+}
+
+/* Lebar popup: gunakan min() agar tidak overflow di layar kecil */
+.umkm-popup-wrapper .leaflet-popup-content {
+  margin: 0;
+  width: min(280px, calc(100vw - 40px)) !important; /* Max 280px, min 40px margin */
+  line-height: 1.5;
+}
+
+/* Warna panah popup disesuaikan dengan background card (putih) */
+.umkm-popup-wrapper .leaflet-popup-tip {
+  background: #fff;
+  box-shadow: none;
+}
+
+/* Tombol close popup — perbesar touch target */
+.umkm-popup-wrapper .leaflet-popup-close-button {
+  color: #6b7280;
+  font-size: 18px;
+  padding: 8px 10px;  /* Diperbesar dari 6px 8px untuk mobile tap */
+  z-index: 1;
+  /* Touch target minimal 44px */
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- Popup Card Components --- */
+
+.umkm-popup-card {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.875rem;
+}
+
+.umkm-popup-photo {
+  width: 100%;
+  height: 155px;
+  object-fit: cover;
+  display: block;
+}
+
+.umkm-popup-body {
+  padding: 12px 14px 14px;
+}
+
+/* Badge kategori (label hijau kecil di atas nama) */
+.umkm-popup-badge {
+  display: inline-block;
+  background-color: #dcfce7; /* green-100 */
+  color: #166534;            /* green-800 */
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  margin-bottom: 6px;
+}
+
+/* Nama UMKM — pakai Playfair agar konsisten dengan heading website */
+.umkm-popup-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #166534;  /* green-800 */
+  margin: 4px 0 6px;
+  line-height: 1.3;
+}
+
+.umkm-popup-desc {
+  font-size: 0.75rem;
+  color: #4b5563;  /* gray-600 */
+  margin-bottom: 8px;
+  line-height: 1.55;
+}
+
+.umkm-popup-address {
+  font-size: 0.72rem;
+  color: #6b7280;  /* gray-500 */
+  margin-bottom: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+/* Tombol navigasi Google Maps */
+.umkm-popup-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background-color: #16a34a;  /* green-600 */
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.umkm-popup-btn:hover {
+  background-color: #15803d;  /* green-700 */
+  color: #fff;
+}
+
+/* Badge "belum terdaftar di Google Maps" — muncul saat googleMapsUrl = '-' */
+.umkm-popup-btn-unavailable {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background-color: #f3f4f6;   /* gray-100 */
+  color: #9ca3af;               /* gray-400 */
+  font-size: 0.72rem;
+  font-weight: 500;
+  font-style: italic;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1.5px dashed #d1d5db; /* gray-300 — efek "belum lengkap" */
+  cursor: default;
+  user-select: none;
+}
+

@@ -4,12 +4,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kampung Gedongan</title>
+
+  <!-- ─── SEO & Metadata ─────────────────────────────────────────────────── -->
+  <title>Kampung Gedongan — Potensi & Peta UMKM Kotagede, Yogyakarta</title>
+  <meta name="description" content="Website resmi Kampung Gedongan, Kotagede, Yogyakarta. Temukan potensi UMKM unggulan meliputi kerajinan perak, kulit, seni budaya Jawa, dan inisiatif lingkungan melalui peta interaktif.">
+  <meta name="keywords" content="Kampung Gedongan, UMKM Kotagede, Kerajinan Perak Kotagede, Yogyakarta, KKN, Peta UMKM">
+  <meta name="author" content="KKN UPN Veteran Yogyakarta – Kampung Gedongan">
+  <link rel="canonical" href="https://restirama147.github.io/kampung-gedongan/" />
+
+  <!-- Open Graph (WhatsApp, Facebook preview) -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://restirama147.github.io/kampung-gedongan/">
+  <meta property="og:title"       content="Kampung Gedongan — Potensi & Peta UMKM Kotagede">
+  <meta property="og:description" content="Temukan potensi UMKM Kampung Gedongan: kerajinan perak, kulit, seni budaya Jawa, dan lebih banyak lagi melalui peta interaktif.">
+  <meta property="og:image"       content="https://restirama147.github.io/kampung-gedongan/assets/logo.png">
+
+  <!-- ─── Fonts & Styling ─────────────────────────────────────────────────── -->
+  <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;600&display=swap"
     rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="style.css">
+  <!-- Leaflet.js CSS — Peta Interaktif -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+  <link rel="stylesheet" href="style.css?v=2.0.2">
+
+  <!-- Google Search Console Verification -->
   <meta name="google-site-verification" content="y2dM7HnC6-RvX0hLgtSlHp6VXfQLZSldGWAY9ZTFT3g"/>
 </head>
 
@@ -33,6 +53,7 @@
           <a href="#peta" class="block py-2 text-gray-700 hover:text-green-600">Batas Wilayah</a>
           <a href="#video" class="block py-2 text-gray-700 hover:text-green-600">Video Profile</a>
           <a href="#potensi" class="block py-2 text-gray-700 hover:text-green-600">Potensi</a>
+          <a href="#peta-umkm" class="block py-2 text-gray-700 hover:text-green-600">Peta</a>
           <a href="#galeri" class="block py-2 text-gray-700 hover:text-green-600">Galeri</a>
           <a href="#pemerintahan" class="block py-2 text-gray-700 hover:text-green-600">Administratif</a>
         </div>
@@ -51,11 +72,12 @@
 
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden md:hidden bg-white shadow px-4 pb-4">
-      <a href="#home" class="block py-2 text-gray-700 hover:text-green-600">Beranda</a>
+      <a href="#home" class="block py-2 textf-gray-700 hover:text-green-600">Beranda</a>
       <a href="#sejarah" class="block py-2 text-gray-700 hover:text-green-600">Sejarah</a>
       <a href="#peta" class="block py-2 text-gray-700 hover:text-green-600">Batas Wilayah</a>
       <a href="#video" class="block py-2 text-gray-700 hover:text-green-600">Video Profile</a>
       <a href="#potensi" class="block py-2 text-gray-700 hover:text-green-600">Potensi</a>
+      <a href="#peta-umkm" class="block py-2 text-gray-700 hover:text-green-600">Peta</a>
       <a href="#galeri" class="block py-2 text-gray-700 hover:text-green-600">Galeri</a>
       <a href="#pemerintahan" class="block py-2 text-gray-700 hover:text-green-600">Administratif</a>
     </div>
@@ -66,11 +88,11 @@
     <!-- Slideshow Container -->
     <div id="hero-slides" class="absolute inset-0">
       <div class="slide bg-cover bg-center absolute inset-0 opacity-100 transition-opacity duration-1000"
-        style="background-image: url('assets/bregodo1.JPG');"></div>
+        style="background-image: url('assets/gallery/bregodo1.JPG');"></div>
       <div class="slide bg-cover bg-center absolute inset-0 opacity-0 transition-opacity duration-1000"
-        style="background-image: url('assets/background2.jpg');"></div>
+        style="background-image: url('assets/gallery/background2.jpg');"></div>
       <div class="slide bg-cover bg-center absolute inset-0 opacity-0 transition-opacity duration-1000"
-        style="background-image: url('assets/bregodo2.JPG');"></div>
+        style="background-image: url('assets/gallery/bregodo2.JPG');"></div>
     </div>
 
     <!-- Overlay -->
@@ -96,55 +118,6 @@
     </button>
   </section>
 
-  <!-- Script Slider -->
-  <script>
-    const slides = document.querySelectorAll('#hero-slides .slide');
-    let currentSlide = 0;
-    let slideInterval;
-
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.classList.remove('opacity-100');
-        slide.classList.add('opacity-0');
-        if (i === index) {
-          slide.classList.add('opacity-100');
-          slide.classList.remove('opacity-0');
-        }
-      });
-    }
-
-    function nextSlide() {
-      currentSlide = (currentSlide + 1) % slides.length;
-      showSlide(currentSlide);
-    }
-
-    function prevSlide() {
-      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-      showSlide(currentSlide);
-    }
-
-    document.getElementById('nextBtn').addEventListener('click', () => {
-      nextSlide();
-      restartAutoSlide();
-    });
-
-    document.getElementById('prevBtn').addEventListener('click', () => {
-      prevSlide();
-      restartAutoSlide();
-    });
-
-    function startAutoSlide() {
-      slideInterval = setInterval(nextSlide, 4000);
-    }
-
-    function restartAutoSlide() {
-      clearInterval(slideInterval);
-      startAutoSlide();
-    }
-
-    // Jalankan otomatis saat halaman dimuat
-    startAutoSlide();
-  </script>
 
   <!-- sejarah -->
   <section id="sejarah" class="py-20 bg-white">
@@ -182,7 +155,7 @@
       <h2 class="text-3xl md:text-4xl font-bold text-green-800 mb-6">Batas <span class="text-green-600">Wilayah </span>
       </h2>
 
-      <div class="mb-10 mt-8"> <img src="assets/peta.jpg" alt="Peta Batas Wilayah Kampung Gedongan"
+      <div class="mb-10 mt-8"> <img src="assets/map/peta.jpg" alt="Peta Batas Wilayah Kampung Gedongan"
           class="max-w-full h-auto mx-auto rounded-lg shadow-lg" style="max-height: 400px; object-fit: contain;">
         <p class="text-gray-700 max-w-3xl mx-auto text-base md:text-lg leading-relaxed px-4 text-justify">
           <br>
@@ -203,8 +176,8 @@
       <!-- Embed Video YouTube -->
       <div class="mb-8 max-w-4xl mx-auto">
         <div class="aspect-video w-full">
-          <iframe src="https://youtu.be/QWV0D-mfv6w?si=MsuN4fGnd-9Q-9o9" 
-            title="Video Profile Kampung Gedongan" frameborder="0"
+          <iframe src="https://www.youtube.com/embed/QWV0D-mfv6w"
+            title="Video Profile Kampung Gedongan" frameborder="0" loading="lazy"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen class="w-full h-full rounded-lg shadow-lg">
           </iframe>
@@ -218,12 +191,12 @@
     <div class="container mx-auto px-4 md:px-6 text-center">
       <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-green-800 mb-4 md:mb-6">Potensi Budaya <span
           class="text-green-600">Kampung Gedongan</span></h2>
-      <div class="mb-10 mt-8"> <img src="assets/peta-potensi.jpg" alt="Peta potensi"
+      <div class="mb-10 mt-8"> <img src="assets/map/peta-potensi.jpg" alt="Peta potensi"
           class="max-w-full h-auto mx-auto rounded-lg shadow-lg" style="max-height: 400px; object-fit: contain;">
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 md:gap-8 text-left">
         <div class="bg-gray-50 p-4 md:p-6 rounded-lg shadow-md flex flex-col md:flex-row items-center">
-          <img src="assets/bregodo2.JPG" alt="Bregodo Kyai Gedong"
+          <img src="assets/gallery/bregodo2.JPG" alt="Bregodo Kyai Gedong"
             class="w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 mr-0 md:mr-4 mb-4 md:mb-0 rounded-lg object-cover">
           <div>
             <h3 class="text-lg md:text-xl font-semibold text-green-600 mb-2">Bregodo Kyai Gedong</h3>
@@ -232,7 +205,7 @@
           </div>
         </div>
         <div class="bg-gray-50 p-4 md:p-6 rounded-lg shadow-md flex flex-col md:flex-row items-center">
-          <img src="assets/nyadran.jpeg" alt="tradisi Nyadran di Kampung Gedongan"
+          <img src="assets/gallery/nyadran.jpeg" alt="tradisi Nyadran di Kampung Gedongan"
             class="w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 mr-0 md:mr-4 mb-4 md:mb-0 rounded-lg object-cover">
           <div>
             <h3 class="text-lg md:text-xl font-semibold text-green-600 mb-2">Tradisi Nyadran</h3>
@@ -241,7 +214,7 @@
           </div>
         </div>
         <div class="bg-gray-50 p-4 md:p-6 rounded-lg shadow-md flex flex-col md:flex-row items-center">
-          <img src="assets/tanduk.png" alt="kerajinan tanduk kerbau"
+          <img src="assets/map/tanduk.png" alt="kerajinan tanduk kerbau"
             class="w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 mr-0 md:mr-4 mb-4 md:mb-0 rounded-lg object-cover">
           <div>
             <h3 class="text-lg md:text-xl font-semibold text-green-600 mb-2">Kerajinan Tanduk Kerbau</h3>
@@ -251,7 +224,7 @@
           </div>
         </div>
         <div class="bg-gray-50 p-4 md:p-6 rounded-lg shadow-md flex flex-col md:flex-row items-center">
-          <img src="assets/perak.jpg" alt="kerajinan perak"
+          <img src="assets/map/perak.jpg" alt="kerajinan perak"
             class="w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 mr-0 md:mr-4 mb-4 md:mb-0 rounded-lg object-cover">
           <div>
             <h3 class="text-lg md:text-xl font-semibold text-green-600 mb-2">Kerajinan Perak</h3>
@@ -261,7 +234,7 @@
           </div>
         </div>
         <div class="bg-gray-50 p-4 md:p-6 rounded-lg shadow-md flex flex-col md:flex-row items-center">
-          <img src="assets/kulit.jpg" alt="kerajinan kulit"
+          <img src="assets/map/kulit.jpg" alt="kerajinan kulit"
             class="w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 mr-0 md:mr-4 mb-4 md:mb-0 rounded-lg object-cover">
           <div>
             <h3 class="text-lg md:text-xl font-semibold text-green-600 mb-2">Kerajinan Kulit</h3>
@@ -271,7 +244,7 @@
           </div>
         </div>
         <div class="bg-gray-50 p-4 md:p-6 rounded-lg shadow-md flex flex-col md:flex-row items-center">
-          <img src="assets/blangkon.jpg" alt="blangkon"
+          <img src="assets/map/blangkon.jpg" alt="blangkon"
             class="w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 mr-0 md:mr-4 mb-4 md:mb-0 rounded-lg object-cover">
           <div>
             <h3 class="text-lg md:text-xl font-semibold text-green-600 mb-2">Sanggar Bayu Mataram</h3>
@@ -282,6 +255,78 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════════ -->
+  <!-- Peta Interaktif UMKM — Leaflet.js v1.9.4 + Filter Kategori v2.0.0    -->
+  <!-- ══════════════════════════════════════════════════════════════════════ -->
+  <section id="peta-umkm" class="py-20 bg-white">
+    <div class="container mx-auto px-4 md:px-6">
+
+      <!-- Section Header -->
+      <div class="text-center mb-10">
+        <span class="text-sm uppercase tracking-wider text-green-600">Potensi Ekonomi</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-green-800 mt-2">
+          Peta <span class="text-green-600">Kampung Gedongan</span>
+        </h2>
+        <p class="text-gray-600 mt-4 max-w-2xl mx-auto text-base">
+          Temukan berbagai usaha dan potensi ekonomi warga Kampung Gedongan melalui peta interaktif.
+        </p>
+      </div>
+
+      <!-- Category Filter / Legend Bar — Day 5 -->
+      <div class="flex flex-wrap justify-center gap-3 mb-6" id="map-filter-bar">
+        <button class="map-filter-pill active" data-category="all">
+          <span class="w-3 h-3 rounded-full bg-gray-400"></span>
+          Semua Potensi
+        </button>
+        <button class="map-filter-pill" data-category="kerajinan">
+          <span class="w-3 h-3 rounded-full bg-green-600"></span>
+          Kerajinan
+        </button>
+        <button class="map-filter-pill" data-category="seni">
+          <span class="w-3 h-3 rounded-full bg-amber-800"></span>
+          Seni & Budaya
+        </button>
+        <button class="map-filter-pill" data-category="kuliner">
+          <span class="w-3 h-3 rounded-full bg-orange-600"></span>
+          Kuliner
+        </button>
+        <button class="map-filter-pill" data-category="jasa">
+          <span class="w-3 h-3 rounded-full bg-blue-600"></span>
+          Jasa
+        </button>
+        <button class="map-filter-pill" data-category="lingkungan">
+          <span class="w-3 h-3 rounded-full bg-teal-600"></span>
+          Lingkungan
+        </button>
+        <button class="map-filter-pill" data-category="perdagangan">
+          <span class="w-3 h-3 rounded-full bg-violet-600"></span>
+          Perdagangan
+        </button>
+      </div>
+
+      <!-- Map Preview Wrapper -->
+      <div class="map-preview-wrapper">
+        <!-- Peta dirender oleh Leaflet ke dalam elemen ini -->
+        <div id="map-preview"></div>
+
+        <!-- Tombol Fullscreen — akan diaktifkan pada Day 4 -->
+        <div class="mt-4 text-center">
+          <button
+            id="btn-open-fullscreen"
+            class="inline-flex items-center gap-2 bg-green-600 text-white font-semibold px-6 py-3 rounded-full shadow hover:bg-green-700 transition duration-300"
+          >
+            <!-- Icon expand -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5" />
+            </svg>
+            Buka Peta Penuh
+          </button>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -298,7 +343,7 @@
 
         <!-- Foto 1 -->
         <div class="overflow-hidden rounded-xl shadow-lg hover:scale-105 transform transition duration-300 bg-green-50">
-          <img src="assets/kwt.jpg" alt="kwt" class="w-full h-64 object-cover">
+          <img src="assets/gallery/kwt.jpg" alt="kwt" class="w-full h-64 object-cover">
           <div class="p-4 bg-green-50">
             <h3 class="font-semibold text-green-800">Pertemuan KWT</h3>
             <p class="text-gray-600 text-sm">Pertemuan rutin Kelompok Wanita Tani, kelompok Mina Ikan, dan Bank Sampah
@@ -308,7 +353,7 @@
 
         <!-- Foto 2 -->
         <div class="overflow-hidden rounded-xl shadow-lg hover:scale-105 transform transition duration-300 bg-green-50">
-          <img src="assets/senam1.jpg" alt="senam" class="w-full h-64 object-cover">
+          <img src="assets/gallery/senam1.jpg" alt="senam" class="w-full h-64 object-cover">
           <div class="p-4 bg-green-50">
             <h3 class="font-semibold text-green-800">Senam Minggu Pagi</h3>
             <p class="text-gray-600 text-sm">Kegiatan senam bersama ibu-ibu setiap Minggu pagi di Balai Kelurahan
@@ -318,7 +363,7 @@
 
         <!-- Foto 3 -->
         <div class="overflow-hidden rounded-xl shadow-lg hover:scale-105 transform transition duration-300 bg-green-50">
-          <img src="assets/kajian.jpg" alt="kajian" class="w-full h-64 object-cover">
+          <img src="assets/gallery/kajian.jpg" alt="kajian" class="w-full h-64 object-cover">
           <div class="p-4 bg-green-50">
             <h3 class="font-semibold text-green-800">Kajian Jumat Malam</h3>
             <p class="text-gray-600 text-sm">Kajian rutin selepas Maghrib hingga Isya setiap Jumat malam di Masjid Nurul
@@ -328,7 +373,7 @@
 
         <!-- Foto 4 -->
         <div class="overflow-hidden rounded-xl shadow-lg hover:scale-105 transform transition duration-300 bg-green-50">
-          <img src="assets/yasinan.jpg" alt="yasinan" class="w-full h-64 object-cover">
+          <img src="assets/gallery/yasinan.jpg" alt="yasinan" class="w-full h-64 object-cover">
           <div class="p-4 bg-green-50">
             <h3 class="font-semibold text-green-800">Yasinan</h3>
             <p class="text-gray-600 text-sm">Yasinan rutin bapak-bapak tiap malam Jumat</p>
@@ -337,7 +382,7 @@
 
         <!-- Foto 5 -->
         <div class="overflow-hidden rounded-xl shadow-lg hover:scale-105 transform transition duration-300 bg-green-50">
-          <img src="assets/pengajian.jpg" alt="pengajian" class="w-full h-64 object-cover">
+          <img src="assets/gallery/pengajian.jpg" alt="pengajian" class="w-full h-64 object-cover">
           <div class="p-4 bg-green-50">
             <h3 class="font-semibold text-green-800">Pengajian</h3>
             <p class="text-gray-600 text-sm">Pengajian ibu-ibu yang dilaksanakan setiap Senin Wage dan Jumat Pahing
@@ -347,7 +392,7 @@
 
         <!-- Foto 6 -->
         <div class="overflow-hidden rounded-xl shadow-lg hover:scale-105 transform transition duration-300 bg-green-50">
-          <img src="assets/tpa.JPG" alt="tpa" class="w-full h-64 object-cover">
+          <img src="assets/gallery/tpa.JPG" alt="tpa" class="w-full h-64 object-cover">
           <div class="p-4 bg-green-50">
             <h3 class="font-semibold text-green-800">TPA</h3>
             <p class="text-gray-600 text-sm">Belajar mengaji Iqro dan Qur'an di TPQ Gedongan</p>
@@ -356,7 +401,7 @@
 
         <!-- Foto 7 -->
         <div class="overflow-hidden rounded-xl shadow-lg hover:scale-105 transform transition duration-300 bg-green-50">
-          <img src="assets/badminton.jpg" alt="badminton" class="w-full h-64 object-cover">
+          <img src="assets/gallery/badminton.jpg" alt="badminton" class="w-full h-64 object-cover">
           <div class="p-4 bg-green-50">
             <h3 class="font-semibold text-green-800">Badminton</h3>
             <p class="text-gray-600 text-sm">Olahraga badminton bersama pemuda Kampung Gedongan setiap malam Senin untuk
@@ -366,7 +411,7 @@
 
         <!-- Foto 8 -->
         <div class="overflow-hidden rounded-xl shadow-lg hover:scale-105 transform transition duration-300 bg-green-50">
-          <img src="assets/rt.jpg" alt="rt" class="w-full h-64 object-cover">
+          <img src="assets/gallery/rt.jpg" alt="rt" class="w-full h-64 object-cover">
           <div class="p-4 bg-green-50">
             <h3 class="font-semibold text-green-800">Pertemuan RT</h3>
             <p class="text-gray-600 text-sm">Pertemuan rutin bulanan setiap RT di Kampung Gedongan sebagai wadah
@@ -378,7 +423,7 @@
         <div
           class="overflow-hidden rounded-xl shadow-lg hover:scale-105 transform transition duration-300 bg-green-50 hidden"
           id="foto-9">
-          <img src="assets/ronda_malam.jpg" alt="ronda" class="w-full h-64 object-cover">
+          <img src="assets/gallery/ronda_malam.jpg" alt="ronda" class="w-full h-64 object-cover">
           <div class="p-4 bg-green-50">
             <h3 class="font-semibold text-green-800">Ronda</h3>
             <p class="text-gray-600 text-sm">Kegiatan ronda malam yang dilakukan secara bergiliran untuk menjaga
@@ -390,7 +435,7 @@
         <div
           class="overflow-hidden rounded-xl shadow-lg hover:scale-105 transform transition duration-300 bg-green-50 hidden"
           id="foto-10">
-          <img src="assets/yandu-balita.jpg" alt="yandu balita" class="w-full h-64 object-cover">
+          <img src="assets/gallery/yandu-balita.jpg" alt="yandu balita" class="w-full h-64 object-cover">
           <div class="p-4 bg-green-50">
             <h3 class="font-semibold text-green-800">Posyandu Balita</h3>
             <p class="text-gray-600 text-sm">Kegiatan pemeriksaan tumbuh kembang balita yang dilakukan rutin setiap
@@ -402,7 +447,7 @@
         <div
           class="overflow-hidden rounded-xl shadow-lg hover:scale-105 transform transition duration-300 bg-green-50 hidden"
           id="foto-11">
-          <img src="assets/posyandu-lansia.JPG" alt="yandu-lansia" class="w-full h-64 object-cover">
+          <img src="assets/gallery/posyandu-lansia.JPG" alt="yandu-lansia" class="w-full h-64 object-cover">
           <div class="p-4 bg-green-50">
             <h3 class="font-semibold text-green-800">Posyandu Lansia</h3>
             <p class="text-gray-600 text-sm">Pemeriksaan kesehatan lansia dan pra-lansia yang dilaksanakan bersama
@@ -414,7 +459,7 @@
         <div
           class="overflow-hidden rounded-xl shadow-lg hover:scale-105 transform transition duration-300 bg-green-50 hidden"
           id="foto-12">
-          <img src="assets/bank-sampah.jpg" alt="bank sampah" class="w-full h-64 object-cover">
+          <img src="assets/map/bank-sampah.jpg" alt="bank sampah" class="w-full h-64 object-cover">
           <div class="p-4 bg-green-50">
             <h3 class="font-semibold text-green-800">Bank Sampah</h3>
             <p class="text-gray-600 text-sm">Kegiatan pemilahan, penimbangan, dan penjualan sampah anorganik untuk
@@ -426,7 +471,7 @@
         <div
           class="overflow-hidden rounded-xl shadow-lg hover:scale-105 transform transition duration-300 bg-green-50 hidden"
           id="foto-13">
-          <img src="assets/voli.jpg" alt="voli" class="w-full h-64 object-cover">
+          <img src="assets/gallery/voli.jpg" alt="voli" class="w-full h-64 object-cover">
           <div class="p-4 bg-green-50">
             <h3 class="font-semibold text-green-800">Voli</h3>
             <p class="text-gray-600 text-sm">Olahraga sore di lapangan voli Kampung Gedongan</p>
@@ -437,7 +482,7 @@
         <div
           class="overflow-hidden rounded-xl shadow-lg hover:scale-105 transform transition duration-300 bg-green-50 hidden"
           id="foto-14">
-          <img src="assets/sodakoh.jpg" alt="bank sampah" class="w-full h-64 object-cover">
+          <img src="assets/map/sodakoh.jpg" alt="sodakoh samah" class="w-full h-64 object-cover">
           <div class="p-4 bg-green-50">
             <h3 class="font-semibold text-green-800">Sodakoh Sampah</h3>
             <p class="text-gray-600 text-sm">Melakukan pemilahan sampah, penimbangan, dan penjualan samah anorganik yang
@@ -449,7 +494,7 @@
         <div
           class="overflow-hidden rounded-xl shadow-lg hover:scale-105 transform transition duration-300 bg-green-50 hidden"
           id="foto-14">
-          <img src="assets/selapanan.jpg" alt="selapanan" class="w-full h-64 object-cover">
+          <img src="assets/gallery/selapanan.jpg" alt="selapanan" class="w-full h-64 object-cover">
           <div class="p-4 bg-green-50">
             <h3 class="font-semibold text-green-800">Pengajian Selapanan</h3>
             <p class="text-gray-600 text-sm">Pengajian rutin yang dilakukan setiap 35 hari sekali (selapanan) di
@@ -461,7 +506,7 @@
         <div
           class="overflow-hidden rounded-xl shadow-lg hover:scale-105 transform transition duration-300 bg-green-50 hidden"
           id="foto-14">
-          <img src="assets/karawitan.jpg" alt="karawitan" class="w-full h-64 object-cover">
+          <img src="assets/gallery/karawitan.jpg" alt="karawitan" class="w-full h-64 object-cover">
           <div class="p-4 bg-green-50">
             <h3 class="font-semibold text-green-800">Karawitan</h3>
             <p class="text-gray-600 text-sm">Kegiatan karawitan yang dilakukan pemuda untuk melestarikan budaya jawa</p>
@@ -472,7 +517,7 @@
         <div
           class="overflow-hidden rounded-xl shadow-lg hover:scale-105 transform transition duration-300 bg-green-50 hidden"
           id="foto-14">
-          <img src="assets/badminton2.jpg" alt="badminton2" class="w-full h-64 object-cover">
+          <img src="assets/gallery/badminton2.jpg" alt="badminton2" class="w-full h-64 object-cover">
           <div class="p-4 bg-green-50">
             <h3 class="font-semibold text-green-800">Badminton Bapak-Bapak</h3>
             <p class="text-gray-600 text-sm">Kegiatan rutin yang dilakukan di halaman fasum oleh
@@ -493,21 +538,6 @@
       </div>
     </div>
   </section>
-
-  <script>
-    document.getElementById('toggle-btn').addEventListener('click', function () {
-      const hiddenPhotos = document.querySelectorAll('#foto-9, #foto-10, #foto-11, #foto-12, #foto-13, #foto-14');
-      const btn = document.getElementById('toggle-btn');
-
-      if (btn.textContent === 'Tampilkan Lebih Banyak') {
-        hiddenPhotos.forEach(photo => photo.classList.remove('hidden'));
-        btn.textContent = 'Tampilkan Lebih Sedikit';
-      } else {
-        hiddenPhotos.forEach(photo => photo.classList.add('hidden'));
-        btn.textContent = 'Tampilkan Lebih Banyak';
-      }
-    });
-  </script>
 
   <!-- Administratif -->
   <section id="pemerintahan" class="py-20 bg-gray-100 relative texture-overlay"
@@ -646,6 +676,7 @@
             <li><a href="#peta" class="hover:text-green-400 transition">Batas Wilayah</a></li>
             <li><a href="#video" class="hover:text-green-400 transition">Video Profile</a></li>
             <li><a href="#potensi" class="hover:text-green-400 transition">Potensi</a></li>
+            <li><a href="#peta-umkm" class="hover:text-green-400 transition">Peta</a></li>
             <li><a href="#galeri" class="hover:text-green-400 transition">Galeri</a></li>
             <li><a href="#pemerintahan" class="hover:text-green-400 transition">Administratif</a></li>
           </ul>
@@ -687,55 +718,86 @@
     </div>
   </footer>
 
+  <!-- ─── JavaScript Modules ──────────────────────────────────────────────── -->
+  <!-- Urutan load: main → slider → gallery → leaflet → map                   -->
+  <script src="js/main.js"></script>
+  <script src="js/slider.js"></script>
+  <script src="js/gallery.js"></script>
+  <!-- Leaflet.js Library — harus dimuat sebelum map.js -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <!-- Map Module -->
+  <script src="js/map.js?v=2.0.2"></script>
 
-  <script>
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
-    });
+  <!-- ══════════════════════════════════════════════════════════════ -->
+  <!-- Fullscreen Map Overlay — Day 4                                          -->
+  <!-- Di root level agar z-index:9999 bekerja di semua browser               -->
+  <!-- ══════════════════════════════════════════════════════════════ -->
+  <div
+    id="map-fullscreen-overlay"
+    class="map-fullscreen-overlay"
+    style="display: none;"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Peta Kampung Gedongan"
+  >
+    <!-- Header Bar -->
+    <div class="map-fullscreen-header">
+      <div class="flex items-center gap-2">
+        <!-- Icon lokasi -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+        </svg>
+        <h2 class="text-base md:text-lg font-bold text-green-800">
+          Peta <span class="text-green-600">Kampung Gedongan</span>
+        </h2>
+      </div>
+      <!-- Tombol tutup -->
+      <button id="btn-close-fullscreen" class="map-fullscreen-close-btn" aria-label="Tutup peta fullscreen">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+        Tutup
+      </button>
+    </div>
 
-    // Sticky navigation
-    window.addEventListener('scroll', function () {
-      const nav = document.querySelector('nav');
-      if (window.scrollY > 50) {
-        nav.classList.add('shadow-md');
-        nav.classList.add('bg-white');
-        nav.classList.remove('bg-opacity-90');
-      } else {
-        nav.classList.remove('shadow-md');
-        nav.classList.add('bg-opacity-90');
-      }
-    });
+    <!-- Sub-header Filter Bar in Fullscreen — Day 5 -->
+    <div class="map-fullscreen-filter-bar">
+      <div class="flex flex-wrap justify-center gap-2 max-w-6xl mx-auto">
+        <button class="map-filter-pill text-xs px-3.5 py-1.5 active" data-category="all">
+          <span class="w-2.5 h-2.5 rounded-full bg-gray-400"></span>
+          Semua Potensi
+        </button>
+        <button class="map-filter-pill text-xs px-3.5 py-1.5" data-category="kerajinan">
+          <span class="w-2.5 h-2.5 rounded-full bg-green-600"></span>
+          Kerajinan
+        </button>
+        <button class="map-filter-pill text-xs px-3.5 py-1.5" data-category="seni">
+          <span class="w-2.5 h-2.5 rounded-full bg-amber-800"></span>
+          Seni & Budaya
+        </button>
+        <button class="map-filter-pill text-xs px-3.5 py-1.5" data-category="kuliner">
+          <span class="w-2.5 h-2.5 rounded-full bg-orange-600"></span>
+          Kuliner
+        </button>
+        <button class="map-filter-pill text-xs px-3.5 py-1.5" data-category="jasa">
+          <span class="w-2.5 h-2.5 rounded-full bg-blue-600"></span>
+          Jasa
+        </button>
+        <button class="map-filter-pill text-xs px-3.5 py-1.5" data-category="lingkungan">
+          <span class="w-2.5 h-2.5 rounded-full bg-teal-600"></span>
+          Lingkungan
+        </button>
+        <button class="map-filter-pill text-xs px-3.5 py-1.5" data-category="perdagangan">
+          <span class="w-2.5 h-2.5 rounded-full bg-violet-600"></span>
+          Perdagangan
+        </button>
+      </div>
+    </div>
 
-    const productCards = document.querySelectorAll('.product-card');
-    productCards.forEach(card => {
-      card.addEventListener('mouseenter', () => {
-        const img = card.querySelector('img');
-        img.style.transform = 'scale(1.1)';
-      });
-
-      card.addEventListener('mouseleave', () => {
-        const img = card.querySelector('img');
-        img.style.transform = 'scale(1)';
-      });
-    });
-  </script>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const btn = document.getElementById("mobile-menu-button");
-      const menu = document.getElementById("mobile-menu");
-
-      btn.addEventListener("click", function () {
-        menu.classList.toggle("hidden");
-      });
-    });
-  </script>
+    <!-- Peta Fullscreen — dirender oleh Leaflet -->
+    <div id="map-fullscreen"></div>
+  </div>
 
 </body>
 

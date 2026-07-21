@@ -1,0 +1,620 @@
+﻿{
+    "version":  "2.0",
+    "lastUpdated":  "2026-07-21",
+    "locations":  [
+                      {
+                          "id":  "rw01-001",
+                          "name":  "Pengrajin Tembaga",
+                          "category":  "kerajinan",
+                          "categoryLabel":  "UMKM",
+                          "description":  "Pengrajin tembaga yang menghasilkan berbagai produk peralatan dapur dan dekorasi rumah dari bahan tembaga pilihan dengan teknik tempa tradisional.",
+                          "address":  "Kampung Gedongan, Purbayan, Kotagede, Yogyakarta",
+                          "photo":  "assets/logo.png",
+                          "coordinates":  [
+                                              -7.819823,
+                                              110.403404
+                                          ],
+                          "googleMapsUrl":  "-",
+                          "rw":  "01"
+                      },
+                      {
+                          "id":  "rw01-002",
+                          "name":  "Warung Vinno",
+                          "category":  "kuliner",
+                          "categoryLabel":  "Kuliner",
+                          "description":  "Warung makan milik Pak Vinno yang menyajikan menu masakan rumahan sehari-hari dengan cita rasa khas dan harga yang terjangkau bagi warga sekitar.",
+                          "address":  "Kampung Gedongan, Purbayan, Kotagede, Yogyakarta",
+                          "photo":  "assets/logo.png",
+                          "coordinates":  [
+                                              -7.820784,
+                                              110.402243
+                                          ],
+                          "googleMapsUrl":  "https://maps.app.goo.gl/65g84qmnjZ9cVLiz7",
+                          "rw":  "01"
+                      },
+                      {
+                          "id":  "rw01-003",
+                          "name":  "Mami Lepi Food",
+                          "category":  "kuliner",
+                          "categoryLabel":  "Kuliner",
+                          "description":  "Usaha kuliner rumahan yang menyajikan berbagai menu makanan lezat dan bergizi, cocok untuk sarapan maupun makan siang keluarga.",
+                          "address":  "Kampung Gedongan, Purbayan, Kotagede, Yogyakarta",
+                          "photo":  "assets/logo.png",
+                          "coordinates":  [
+                                              -7.820889,
+                                              110.402579
+                                          ],
+                          "googleMapsUrl":  "https://maps.app.goo.gl/3L9ydNHxSAkMugaJ9",
+                          "rw":  "01"
+                      },
+                      {
+                          "id":  "rw01-004",
+                          "name":  "Angkringan Pak Sunaryo",
+                          "category":  "kuliner",
+                          "categoryLabel":  "Kuliner",
+                          "description":  "Angkringan khas Jawa milik Pak Sunaryo yang buka di malam hari, menyajikan nasi kucing, aneka sate, dan minuman hangat dengan suasana yang akrab.",
+                          "address":  "Kampung Gedongan, Purbayan, Kotagede, Yogyakarta",
+                          "photo":  "assets/logo.png",
+                          "coordinates":  [
+                                              -7.819469,
+                                              110.401322
+                                          ],
+                          "googleMapsUrl":  "-",
+                          "rw":  "01"
+                      },
+                      {
+                          "id":  "rw01-005",
+                          "name":  "Prisha Attire Sewa Kebaya",
+                          "category":  "jasa",
+                          "categoryLabel":  "Jasa \u0026 Busana",
+                          "description":  "Layanan sewa kebaya dan busana adat Jawa untuk berbagai keperluan seperti wisuda, pernikahan, dan acara budaya. Tersedia berbagai pilihan model dan ukuran.",
+                          "address":  "Kampung Gedongan, Purbayan, Kotagede, Yogyakarta",
+                          "photo":  "assets/logo.png",
+                          "coordinates":  [
+                                              -7.819490,
+                                              110.402435
+                                          ],
+                          "googleMapsUrl":  "https://maps.app.goo.gl/GmacjZBMhrDqjZnh7",
+                          "rw":  "01"
+                      },
+                      {
+                          "id":  "rw01-006",
+                          "name":  "Juragan Kayu",
+                          "category":  "kerajinan",
+                          "categoryLabel":  "Kerajinan Kayu",
+                          "description":  "Usaha perdagangan kayu yang menyediakan berbagai jenis kayu untuk keperluan bangunan, perabot, dan kerajinan tangan di wilayah Kotagede.",
+                          "address":  "Kampung Gedongan, Purbayan, Kotagede, Yogyakarta",
+                          "photo":  "assets/logo.png",
+                          "coordinates":  [
+                                              -7.819802,
+                                              110.403511
+                                          ],
+                          "googleMapsUrl":  "-",
+                          "rw":  "01"
+                      },
+                      {
+                          "id":  "rw01-007",
+                          "name":  "Juragan Silver",
+                          "category":  "kerajinan",
+                          "categoryLabel":  "Kerajinan Perak",
+                          "description":  "Pengrajin perak khas Kotagede yang memproduksi perhiasan, aksesori, dan suvenir perak dengan motif ukiran tradisional Jawa yang bernilai seni tinggi.",
+                          "address":  "Kampung Gedongan, Purbayan, Kotagede, Yogyakarta",
+                          "photo":  "assets/logo.png",
+                          "coordinates":  [
+                                              -7.820408,
+                                              110.403150
+                                          ],
+                          "googleMapsUrl":  "-",
+                          "rw":  "01"
+                      },
+                      {
+                          "id":  "rw01-008",
+                          "name":  "Pengepul Sampah",
+                          "category":  "lingkungan",
+                          "categoryLabel":  "Lingkungan",
+                          "description":  "Usaha pengepulan sampah yang berperan dalam menjaga kebersihan lingkungan dengan mengumpulkan dan mendistribusikan sampah anorganik ke pengolah lanjutan.",
+                          "address":  "Kampung Gedongan, Purbayan, Kotagede, Yogyakarta",
+                          "photo":  "assets/logo.png",
+                          "coordinates":  [
+                                              -7.820408,
+                                              110.403150
+                                          ],
+                          "googleMapsUrl":  "-",
+                          "rw":  "01"
+                      },
+                      {
+                          "id":  "rw02-001",
+                          "name":  "Kencanadewi Rempah",
+                          "category":  "perdagangan",
+                          "categoryLabel":  "UMKM",
+                          "description":  "Usaha produksi rempah-rempah alami dan produk herbal yang diolah secara tradisional, menjaga kualitas dan khasiat tanaman obat khas Nusantara.",
+                          "address":  "Kampung Gedongan, Purbayan, Kotagede, Yogyakarta",
+                          "photo":  "assets/logo.png",
+                          "coordinates":  [
+                                              -7.820804,
+                                              110.401824
+                                          ],
+                          "googleMapsUrl":  "https://maps.app.goo.gl/gGsrpv4up6cVbkiV7",
+                          "rw":  "02"
+                      },
+                      {
+                          "id":  "rw02-002",
+                          "name":  "Aneka Peyek",
+                          "category":  "perdagangan",
+                          "categoryLabel":  "Kuliner",
+                          "description":  "Produksi peyek aneka rasa (kacang, udang, teri) dengan resep turun-temurun. Camilan renyah dan gurih yang cocok sebagai oleh-oleh khas Kotagede.",
+                          "address":  "Kampung Gedongan, Purbayan, Kotagede, Yogyakarta",
+                          "photo":  "assets/logo.png",
+                          "coordinates":  [
+                                              -7.820813,
+                                              110.401858
+                                          ],
+                          "googleMapsUrl":  "https://maps.app.goo.gl/Xd6UspnAqduSoEsC6",
+                          "rw":  "02"
+                      },
+                      {
+                          "id":  "rw02-003",
+                          "name":  "Bengkel Piyik Garage",
+                          "category":  "jasa",
+                          "categoryLabel":  "Jasa Bengkel",
+                          "description":  "Bengkel kendaraan bermotor yang melayani servis rutin, perbaikan mesin, dan ganti oli. Dikerjakan oleh mekanik berpengalaman dengan harga bersahabat.",
+                          "address":  "Kampung Gedongan, Purbayan, Kotagede, Yogyakarta",
+                          "photo":  "assets/logo.png",
+                          "coordinates":  [
+                                              -7.820873,
+                                              110.402112
+                                          ],
+                          "googleMapsUrl":  "https://maps.app.goo.gl/ngKHpNBKgazWT7Mr6",
+                          "rw":  "02"
+                      },
+                      {
+                          "id":  "rw02-004",
+                          "name":  "Warung Mbak Apit",
+                          "category":  "kuliner",
+                          "categoryLabel":  "Kuliner",
+                          "description":  "Warung makan Mbak Apit yang menyajikan berbagai lauk pauk masakan Jawa dengan bumbu tradisional, menjadi andalan warga untuk makan siang setiap hari.",
+                          "address":  "Kampung Gedongan, Purbayan, Kotagede, Yogyakarta",
+                          "photo":  "assets/logo.png",
+                          "coordinates":  [
+                                              -7.820905,
+                                              110.402461
+                                          ],
+                          "googleMapsUrl":  "https://maps.app.goo.gl/rrFr5udQCfzmYbxK6",
+                          "rw":  "02"
+                      },
+                      {
+                          "id":  "rw02-005",
+                          "name":  "Warung Bu Mul",
+                          "category":  "kuliner",
+                          "categoryLabel":  "Kuliner",
+                          "description":  "Warung Bu Mul menyajikan menu masakan rumahan lengkap mulai dari nasi, sayur, lauk hewani, hingga minuman segar. Buka setiap hari untuk melayani warga sekitar.",
+                          "address":  "Kampung Gedongan, Purbayan, Kotagede, Yogyakarta",
+                          "photo":  "assets/logo.png",
+                          "coordinates":  [
+                                              -7.821091,
+                                              110.402861
+                                          ],
+                          "googleMapsUrl":  "https://maps.app.goo.gl/8BNsChnCZhXkiJDm8",
+                          "rw":  "02"
+                      },
+                      {
+                          "id":  "rw02-006",
+                          "name":  "Toko Pakan Ternak Sempulur",
+                          "category":  "perdagangan",
+                          "categoryLabel":  "Perdagangan",
+                          "description":  "Toko yang menyediakan berbagai jenis pakan ternak berkualitas seperti ayam, kambing, dan ikan. Menjadi mitra andalan para peternak di wilayah Kotagede.",
+                          "address":  "Kampung Gedongan, Purbayan, Kotagede, Yogyakarta",
+                          "photo":  "assets/logo.png",
+                          "coordinates":  [
+                                              -7.821093,
+                                              110.402984
+                                          ],
+                          "googleMapsUrl":  "https://maps.app.goo.gl/8qMgfCnLmuAAmDt59",
+                          "rw":  "02"
+                      },
+                      {
+                          "id":  "rw02-007",
+                          "name":  "Umi Silver",
+                          "category":  "kerajinan",
+                          "categoryLabel":  "Kerajinan Perak",
+                          "description":  "Pengrajin perak Umi Silver yang terkenal dengan kehalusan ukiran dan kerapian pengerjaan. Produk meliputi cincin, kalung, gelang, dan aksesori perak lainnya.",
+                          "address":  "Kampung Gedongan, Purbayan, Kotagede, Yogyakarta",
+                          "photo":  "assets/map/perak.jpg",
+                          "coordinates":  [
+                                              -7.821489,
+                                              110.402806
+                                          ],
+                          "googleMapsUrl":  "https://maps.app.goo.gl/bvtnXh8AzeJswQmJ8",
+                          "rw":  "02"
+                      },
+                      {
+                          "id":  "rw02-008",
+                          "name":  "Filo Leather",
+                          "category":  "kerajinan",
+                          "categoryLabel":  "Kerajinan Kulit",
+                          "description":  "Workshop kerajinan kulit Filo Leather menghasilkan dompet, tas, ikat pinggang, dan aksesori kulit dengan desain kontemporer yang memadukan estetika tradisional.",
+                          "address":  "Kampung Gedongan, Purbayan, Kotagede, Yogyakarta",
+                          "photo":  "assets/map/kulit.jpg",
+                          "coordinates":  [
+                                              -7.821471,
+                                              110.402650
+                                          ],
+                          "googleMapsUrl":  "https://maps.app.goo.gl/kjwhZfZ81Pf3HrMLA",
+                          "rw":  "02"
+                      },
+                      {
+                          "id":  "rw02-009",
+                          "name":  "Warung Bu Slamet",
+                          "category":  "kuliner",
+                          "categoryLabel":  "Kuliner",
+                          "description":  "Warung Bu Slamet yang menyajikan menu sederhana namun lezat, menjadi tempat makan favorit warga dengan porsi kenyang dan harga yang sangat terjangkau.",
+                          "address":  "Kampung Gedongan, Purbayan, Kotagede, Yogyakarta",
+                          "photo":  "assets/logo.png",
+                          "coordinates":  [
+                                              -7.821068,
+                                              110.401432
+                                          ],
+                          "googleMapsUrl":  "-",
+                          "rw":  "02"
+                      },
+                      {
+                          "id":  "rw02-010",
+                          "name":  "Warmindoku",
+                          "category":  "kuliner",
+                          "categoryLabel":  "Kuliner \u0026 Jasa",
+                          "description":  "Usaha gabungan kuliner warmindo dan jasa salon kecantikan milik Yura. Menawarkan menu indomie berbagai varian dan layanan perawatan rambut serta kecantikan.",
+                          "address":  "Kampung Gedongan, Purbayan, Kotagede, Yogyakarta",
+                          "photo":  "assets/logo.png",
+                          "coordinates":  [
+                                              -7.821101,
+                                              110.401665
+                                          ],
+                          "googleMapsUrl":  "https://maps.app.goo.gl/wyMQtMxFMDuY5UX88",
+                          "rw":  "02"
+                      },
+                      {
+                          "id":  "rw02-010",
+                          "name":  "Salon Yura",
+                          "category":  "jasa",
+                          "categoryLabel":  "Jasa",
+                          "description":  "Usaha gabungan kuliner warmindo dan jasa salon kecantikan milik Yura. Menawarkan menu indomie berbagai varian dan layanan perawatan rambut serta kecantikan.",
+                          "address":  "Kampung Gedongan, Purbayan, Kotagede, Yogyakarta",
+                          "photo":  "assets/logo.png",
+                          "coordinates":  [
+                                              -7.820970, 110.401679
+                                          ],
+                          "googleMapsUrl":  "https://maps.app.goo.gl/GR8CcPQXiLe2Trta7",
+                          "rw":  "02"
+                      },
+                      {
+                          "id":  "rw02-011",
+                          "name":  "Sodakoh Sampah",
+                          "category":  "lingkungan",
+                          "categoryLabel":  "Pengelolaan Lingkungan",
+                          "description":  "Program Sodakoh Sampah adalah gerakan sosial berbasis lingkungan di mana warga menyetorkan sampah anorganik pilah untuk mendukung kas RT/RW dan kebersihan kampung.",
+                          "address":  "Kampung Gedongan, Purbayan, Kotagede, Yogyakarta",
+                          "photo":  "assets/map/sodakoh.jpg",
+                          "coordinates":  [
+                                              -7.821257,
+                                              110.402168
+                                          ],
+                          "googleMapsUrl":  "-",
+                          "rw":  "02"
+                      },
+                      {
+                          "id":  "rw03-001",
+                          "name":  "Cheesecake Expert",
+                          "category":  "kuliner",
+                          "categoryLabel":  "Kuliner",
+                          "description":  "Usaha kue Cheesecake Expert menghadirkan beragam varian cheesecake premium dengan bahan pilihan. Tersedia versi original, matcha, blueberry, dan rasa musiman lainnya.",
+                          "address":  "Kampung Gedongan, Purbayan, Kotagede, Yogyakarta",
+                          "photo":  "assets/logo.png",
+                          "coordinates":  [
+                                              -7.821150,
+                                              110.401232
+                                          ],
+                          "googleMapsUrl":  "https://maps.app.goo.gl/mgX86Sv6CeQhN4YN7",
+                          "rw":  "03"
+                      },
+                      {
+                          "id":  "rw03-002",
+                          "name":  "Owner Abi-f",
+                          "category":  "perdagangan",
+                          "categoryLabel":  "UMKM",
+                          "description":  "Usaha online shop Abi-F yang bergerak di bidang perdagangan produk fashion, aksesori, dan kebutuhan sehari-hari melalui platform digital dengan jangkauan luas.",
+                          "address":  "Kampung Gedongan, Purbayan, Kotagede, Yogyakarta",
+                          "photo":  "assets/logo.png",
+                          "coordinates":  [
+                                              -7.822314,
+                                              110.400896
+                                          ],
+                          "googleMapsUrl":  "https://maps.app.goo.gl/zohkWfL9w1ym17LQA",
+                          "rw":  "03"
+                      },
+                      {
+                          "id":  "rw03-003",
+                          "name":  "Fiyan Silver",
+                          "category":  "kerajinan",
+                          "categoryLabel":  "Kerajinan Perak",
+                          "description":  "Fiyan Silver adalah studio kerajinan perak yang fokus pada produk perhiasan custom. Pembeli dapat memesan desain sendiri sesuai selera dengan hasil yang presisi.",
+                          "address":  "Kampung Gedongan, Purbayan, Kotagede, Yogyakarta",
+                          "photo":  "assets/logo.png",
+                          "coordinates":  [
+                                              -7.821147,
+                                              110.403065
+                                          ],
+                          "googleMapsUrl":  "https://maps.app.goo.gl/vMbtB9hveKrJLYNb7",
+                          "rw":  "03"
+                      },
+                      {
+                          "id":  "rw03-004",
+                          "name":  "Penjahit Sorjan (sebelah WGO)",
+                          "category":  "jasa",
+                          "categoryLabel":  "Jasa Busana",
+                          "description":  "Penjahit spesialis sorjan, lurik, dan busana adat Jawa yang berlokasi di sebelah WGO. Melayani jahit baju, hem, celana, dan seragam dengan jahitan rapi dan cepat.",
+                          "address":  "Kampung Gedongan, Purbayan, Kotagede, Yogyakarta",
+                          "photo":  "assets/logo.png",
+                          "coordinates":  [
+                                              -7.822380,
+                                              110.403047
+                                          ],
+                          "googleMapsUrl":  "https://maps.app.goo.gl/tvmMB278PzhAVYrA9",
+                          "rw":  "03"
+                      },
+                      {
+                          "id":  "rw03-005",
+                          "name":  "Pet Shop Barokah Dan Zahra Laundry",
+                          "category":  "jasa",
+                          "categoryLabel":  "Jasa Laundry \u0026 Petshop",
+                          "description":  "Pet Shop Barokah menyediakan kebutuhan hewan peliharaan seperti makanan, aksesoris, dan layanan grooming. Zahra Laundry melayani cuci-setrika baju kiloan dan satuan.",
+                          "address":  "Kampung Gedongan, Purbayan, Kotagede, Yogyakarta",
+                          "photo":  "assets/logo.png",
+                          "coordinates":  [
+                                              -7.821195,
+                                              110.401784
+                                          ],
+                          "googleMapsUrl":  "https://maps.app.goo.gl/L3JDRSCFDvyVMw6H6",
+                          "rw":  "03"
+                      },
+                      {
+                          "id":  "rw03-006",
+                          "name":  "Tanduk Kerbau",
+                          "category":  "kerajinan",
+                          "categoryLabel":  "Kerajinan Tanduk",
+                          "description":  "Pengrajin tanduk kerbau yang menghasilkan berbagai produk unik seperti sisir, hiasan, dan aksesori dari tanduk asli. Merupakan kerajinan warisan budaya yang langka.",
+                          "address":  "Kampung Gedongan, Purbayan, Kotagede, Yogyakarta",
+                          "photo":  "assets/map/tanduk.jpg",
+                          "coordinates":  [
+                                              -7.822125,
+                                              110.403153
+                                          ],
+                          "googleMapsUrl":  "https://maps.app.goo.gl/pQ5TqkzosEvbK6c97",
+                          "rw":  "03"
+                      },
+                      {
+                          "id":  "rw03-007",
+                          "name":  "Nanta’s Bite",
+                          "category":  "kuliner",
+                          "categoryLabel":  "Kuliner",
+                          "description":  "Nanta\u0027s Bite menawarkan dimsum segar, gorengan kekinian, dan berbagai jajanan hits yang digemari anak muda. Dibuat fresh setiap hari dengan bahan-bahan berkualitas.",
+                          "address":  "Kampung Gedongan, Purbayan, Kotagede, Yogyakarta",
+                          "photo":  "assets/logo.png",
+                          "coordinates":  [
+                                              -7.821419,
+                                              110.402994
+                                          ],
+                          "googleMapsUrl":  "https://maps.app.goo.gl/soZjQTwmakmPh6yX6",
+                          "rw":  "03"
+                      },
+                      {
+                          "id":  "rw03-008",
+                          "name":  "WGO Sinjang Jawi",
+                          "category":  "seni",
+                          "categoryLabel":  "Sanggar Seni \u0026 Budaya",
+                          "description":  "WGO Sinjang Jawi adalah pusat pembuatan dan penjualan kain lurik, sorjan, serta busana adat Jawa. Aktif melestarikan wastra lokal sebagai identitas budaya Kotagede.",
+                          "address":  "Kampung Gedongan, Purbayan, Kotagede, Yogyakarta",
+                          "photo":  "assets/map/blangkon.jpg",
+                          "coordinates":  [
+                                              -7.822380,
+                                              110.403047
+                                          ],
+                          "googleMapsUrl":  "https://maps.app.goo.gl/KunroV9XqnWY8dGeA",
+                          "rw":  "03"
+                      },
+                      {
+                          "id":  "rw03-009",
+                          "name":  "Angkringan Laris",
+                          "category":  "kuliner",
+                          "categoryLabel":  "Kuliner",
+                          "description":  "Angkringan Laris buka dari sore hingga malam, menyajikan nasi kucing, sate usus, tahu tempe bacem, dan aneka minuman panas yang digemari warga dan pelajar.",
+                          "address":  "Kampung Gedongan, Purbayan, Kotagede, Yogyakarta",
+                          "photo":  "assets/logo.png",
+                          "coordinates":  [
+                                              -7.822410,
+                                              110.401558
+                                          ],
+                          "googleMapsUrl":  "https://maps.app.goo.gl/VP1uhfAfqzCPzX5ZA",
+                          "rw":  "03"
+                      },
+                      {
+                          "id":  "rw03-010",
+                          "name":  "Toko Snack Bu Atun",
+                          "category":  "perdagangan",
+                          "categoryLabel":  "Perdagangan",
+                          "description":  "Toko Snack Bu Atun menjual beragam camilan, kue kering, dan makanan ringan kemasan yang cocok untuk oleh-oleh, arisan, maupun cemilan keluarga sehari-hari.",
+                          "address":  "Kampung Gedongan, Purbayan, Kotagede, Yogyakarta",
+                          "photo":  "assets/logo.png",
+                          "coordinates":  [
+                                              -7.822275,
+                                              110.400817
+                                          ],
+                          "googleMapsUrl":  "https://maps.app.goo.gl/9YEiu5xs8ChZUivy8",
+                          "rw":  "03"
+                      },
+                      {
+                          "id":  "rw03-011",
+                          "name":  "Dapur Penyetan Mba Siska",
+                          "category":  "kuliner",
+                          "categoryLabel":  "Kuliner",
+                          "description":  "Dapur Penyetan Mba Siska menyajikan penyetan ayam, lele, dan tahu tempe dengan sambal bawang yang khas. Menu sederhana namun selalu ramai dikunjungi pelanggan setia.",
+                          "address":  "Kampung Gedongan, Purbayan, Kotagede, Yogyakarta",
+                          "photo":  "assets/logo.png",
+                          "coordinates":  [
+                                              -7.822325,
+                                              110.400990
+                                          ],
+                          "googleMapsUrl":  "https://maps.app.goo.gl/cPmCmP2wmsN9A8Fu5",
+                          "rw":  "03"
+                      },
+                      {
+                          "id":  "rw03-012",
+                          "name":  "Angkringan 16",
+                          "category":  "kuliner",
+                          "categoryLabel":  "Kuliner",
+                          "description":  "Angkringan 16 adalah tempat nongkrong warga yang menyajikan aneka menu angkringan klasik seperti nasi kucing, sate-satean, wedang jahe, dan kopi dengan suasana santai.",
+                          "address":  "Kampung Gedongan, Purbayan, Kotagede, Yogyakarta",
+                          "photo":  "assets/logo.png",
+                          "coordinates":  [
+                                              -7.821892,
+                                              110.400803
+                                          ],
+                          "googleMapsUrl":  "https://maps.app.goo.gl/UwsctBdgYXq6Jfj89",
+                          "rw":  "03"
+                      },
+                      {
+                          "id":  "rw03-013",
+                          "name":  "Anugrah Pakan Unggas",
+                          "category":  "perdagangan",
+                          "categoryLabel":  "Perdagangan",
+                          "description":  "Toko pakan unggas Anugrah yang menyediakan berbagai jenis pakan ayam, bebek, dan burung. Melayani peternak kecil maupun skala rumahan di sekitar Kampung Gedongan.",
+                          "address":  "Kampung Gedongan, Purbayan, Kotagede, Yogyakarta",
+                          "photo":  "assets/logo.png",
+                          "coordinates":  [
+                                              -7.821363,
+                                              110.400939
+                                          ],
+                          "googleMapsUrl":  "https://maps.app.goo.gl/giWevSFbWWrFNQjR7",
+                          "rw":  "03"
+                      },
+                      {
+                          "id":  "rw03-014",
+                          "name":  "Warung Waginem",
+                          "category":  "kuliner",
+                          "categoryLabel":  "Kuliner",
+                          "description":  "Warung Waginem menyajikan masakan rumahan yang hangat dan familiar dengan menu berganti setiap hari, menjadi pilihan makan siang warga yang ingin menu rumahan yang enak.",
+                          "address":  "Kampung Gedongan, Purbayan, Kotagede, Yogyakarta",
+                          "photo":  "assets/logo.png",
+                          "coordinates":  [
+                                              -7.822417,
+                                              110.401764
+                                          ],
+                          "googleMapsUrl":  "-",
+                          "rw":  "03"
+                      },
+                      {
+                          "id":  "rw03-015",
+                          "name":  "Angkringan Pak Sigit",
+                          "category":  "kuliner",
+                          "categoryLabel":  "Kuliner",
+                          "description":  "Angkringan Pak Sigit yang sudah bertahun-tahun berdiri, dikenal dengan kopi jos-nya yang khas dan suasana malam yang hangat. Menjadi ruang sosial warga kampung.",
+                          "address":  "Kampung Gedongan, Purbayan, Kotagede, Yogyakarta",
+                          "photo":  "assets/logo.png",
+                          "coordinates":  [
+                                              -7.822442,
+                                              110.402709
+                                          ],
+                          "googleMapsUrl":  "https://maps.app.goo.gl/N6jwv2eEUL66g1MH9",
+                          "rw":  "03"
+                      },
+                      {
+                          "id":  "rw03-016",
+                          "name":  "Warung Sembako Medbusa",
+                          "category":  "perdagangan",
+                          "categoryLabel":  "Perdagangan",
+                          "description":  "Warung Sembako Medbusa menyediakan kebutuhan pokok sehari-hari seperti beras, minyak, gula, tepung, dan aneka sembako lainnya dengan harga grosir yang terjangkau.",
+                          "address":  "Kampung Gedongan, Purbayan, Kotagede, Yogyakarta",
+                          "photo":  "assets/logo.png",
+                          "coordinates":  [
+                                              -7.821299,
+                                              110.400912
+                                          ],
+                          "googleMapsUrl":  "https://maps.app.goo.gl/oJdsSG9coUydSFnG9",
+                          "rw":  "03"
+                      },
+                      {
+                          "id":  "rw03-017",
+                          "name":  "Gan\u0027s Cell",
+                          "category":  "perdagangan",
+                          "categoryLabel":  "Perdagangan",
+                          "description":  "Gan\u0027s Cell menyediakan layanan penjualan pulsa, paket data, kartu perdana, dan aksesori handphone. Juga melayani pembayaran tagihan listrik dan transfer bank.",
+                          "address":  "Kampung Gedongan, Purbayan, Kotagede, Yogyakarta",
+                          "photo":  "assets/logo.png",
+                          "coordinates":  [
+                                              -7.821801,
+                                              110.402902
+                                          ],
+                          "googleMapsUrl":  "https://maps.app.goo.gl/CfXWG1JK6NbAFmh49",
+                          "rw":  "03"
+                      },
+                      {
+                          "id":  "rw03-018",
+                          "name":  "Nabila Laundry",
+                          "category":  "jasa",
+                          "categoryLabel":  "Jasa Laundry",
+                          "description":  "Nabila Laundry melayani cuci dan setrika pakaian harian, bed cover, dan seragam. Menggunakan deterjen ramah lingkungan dengan hasil bersih, harum, dan rapih.",
+                          "address":  "Kampung Gedongan, Purbayan, Kotagede, Yogyakarta",
+                          "photo":  "assets/logo.png",
+                          "coordinates":  [
+                                              -7.822391,
+                                              110.401468
+                                          ],
+                          "googleMapsUrl":  "https://maps.app.goo.gl/ktyDABs4zb7ZDKvy7",
+                          "rw":  "03"
+                      },
+                      {
+                          "id":  "rw03-019",
+                          "name":  "Warung Sembako Ibu Supriyani",
+                          "category":  "perdagangan",
+                          "categoryLabel":  "Perdagangan",
+                          "description":  "Warung Sembako Bu Supriyani menyediakan kebutuhan dapur sehari-hari lengkap, dari bahan makanan pokok hingga bumbu masak. Melayani warga dengan pelayanan yang ramah.",
+                          "address":  "Kampung Gedongan, Purbayan, Kotagede, Yogyakarta",
+                          "photo":  "assets/logo.png",
+                          "coordinates":  [
+                                              -7.822208,
+                                              110.401207
+                                          ],
+                          "googleMapsUrl":  "https://maps.app.goo.gl/q1Y7ubgRe9NXuzQE9",
+                          "rw":  "03"
+                      },
+                      {
+                          "id":  "rw03-020",
+                          "name":  "Warung Kelontong Bu Turkiman",
+                          "category":  "perdagangan",
+                          "categoryLabel":  "Perdagangan",
+                          "description":  "Warung kelontong Bu Turkiman yang menjadi toko serba ada di lingkungan RT, menyediakan kebutuhan rumah tangga, jajanan anak, dan produk kebutuhan harian warga.",
+                          "address":  "Kampung Gedongan, Purbayan, Kotagede, Yogyakarta",
+                          "photo":  "assets/logo.png",
+                          "coordinates":  [
+                                              -7.822137,
+                                              110.401211
+                                          ],
+                          "googleMapsUrl":  "-",
+                          "rw":  "03"
+                      },
+                      {
+                          "id":  "rw03-021",
+                          "name":  "Bank Sampah Gedongan Bersih",
+                          "category":  "lingkungan",
+                          "categoryLabel":  "Pengelolaan Lingkungan",
+                          "description":  "Bank Sampah Gedongan Bersih adalah program pengelolaan sampah berbasis komunitas yang memilah sampah organik menjadi kompos dan sampah anorganik menjadi nilai ekonomi.",
+                          "address":  "Kampung Gedongan, Purbayan, Kotagede, Yogyakarta",
+                          "photo":  "assets/map/bank-sampah.jpg",
+                          "coordinates":  [
+                                              -7.822312,
+                                              110.401787
+                                          ],
+                          "googleMapsUrl":  "-",
+                          "rw":  "03"
+                      }
+                  ]
+}
