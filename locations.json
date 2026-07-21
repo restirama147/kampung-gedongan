@@ -109,7 +109,7 @@
                       },
                       {
                           "id":  "rw01-008",
-                          "name":  "Pengepul Sampah",
+                          "name":  "HRD Rosok Jogja",
                           "category":  "lingkungan",
                           "categoryLabel":  "Lingkungan",
                           "description":  "Usaha pengepulan sampah yang berperan dalam menjaga kebersihan lingkungan dengan mengumpulkan dan mendistribusikan sampah anorganik ke pengolah lanjutan.",
@@ -119,7 +119,7 @@
                                               -7.820408,
                                               110.403150
                                           ],
-                          "googleMapsUrl":  "-",
+                          "googleMapsUrl":  "https://maps.app.goo.gl/PHrfoAsB6R9hBdU59",
                           "rw":  "01"
                       },
                       {
